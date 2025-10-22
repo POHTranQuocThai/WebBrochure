@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function ContactForm() {
+    const { t } = useTranslation();
     const ref = useRef();
     const [form, setForm] = useState({ name: '', email: '', phone: '' });
     const [errors, setErrors] = useState({});
@@ -20,9 +22,9 @@ export default function ContactForm() {
 
     function validate() {
         const e = {};
-        if (!form.name.trim()) e.name = 'Vui lòng nhập tên';
-        if (!/^[\w-.]+@[\w-]+(\.[\w-]+)+$/.test(form.email)) e.email = 'Email không hợp lệ';
-        if (!/^\+?[0-9\s-]{8,}$/.test(form.phone)) e.phone = 'Số điện thoại không hợp lệ';
+        if (!form.name.trim()) e.name = t('contact.errors.nameRequired');
+        if (!/^[\w-.]+@[\w-]+(\.[\w-]+)+$/.test(form.email)) e.email = t('contact.errors.emailInvalid');
+        if (!/^\+?[0-9\s-]{8,}$/.test(form.phone)) e.phone = t('contact.errors.phoneInvalid');
         setErrors(e);
         return Object.keys(e).length === 0;
     }
@@ -39,34 +41,34 @@ export default function ContactForm() {
         <section id="contact" className="section revealable contact-section" ref={ref}>
             <div className="container contact-wrap">
                 <div className="contact-card">
-                    <h2 className="section-title">Liên hệ</h2>
-                    <p className="lead">Cho chúng tôi biết thông tin của bạn, chúng tôi sẽ liên hệ sớm.</p>
+                    <h2 className="section-title">{t('contact.title')}</h2>
+                    <p className="lead">{t('contact.lead')}</p>
                     <form onSubmit={handleSubmit} noValidate>
                         <div className="contact-grid">
                             <label className={`input-group ${errors.name ? 'has-error' : ''}`}>
-                                <span>Họ và tên</span>
+                                <span>{t('contact.nameLabel')}</span>
                                 <input
-                                    placeholder="Nguyễn Văn A"
+                                    placeholder={t('contact.namePlaceholder')}
                                     value={form.name}
                                     onChange={e => setForm({ ...form, name: e.target.value })}
                                 />
                                 <div className="field-error">{errors.name}</div>
                             </label>
                             <label className={`input-group ${errors.email ? 'has-error' : ''}`}>
-                                <span>Email</span>
+                                <span>{t('contact.emailLabel')}</span>
                                 <input
                                     type="email"
-                                    placeholder="email@domain.com"
+                                    placeholder={t('contact.emailPlaceholder')}
                                     value={form.email}
                                     onChange={e => setForm({ ...form, email: e.target.value })}
                                 />
                                 <div className="field-error">{errors.email}</div>
                             </label>
                             <label className={`input-group ${errors.phone ? 'has-error' : ''}`}>
-                                <span>Số điện thoại</span>
+                                <span>{t('contact.phoneLabel')}</span>
                                 <input
                                     type="tel"
-                                    placeholder="090 123 4567"
+                                    placeholder={t('contact.phonePlaceholder')}
                                     value={form.phone}
                                     onChange={e => setForm({ ...form, phone: e.target.value })}
                                 />
@@ -75,7 +77,7 @@ export default function ContactForm() {
                         </div>
                         <div className="contact-actions">
                             <button className="btn-primary" type="submit" disabled={sent}>
-                                {sent ? 'Đã gửi ✓' : 'Gửi thông tin'}
+                                {sent ? t('contact.sent') : t('contact.submit')}
                             </button>
                         </div>
                     </form>

@@ -49,7 +49,7 @@ export default function SocialFloat() {
 
     return (
         <div className={`social-float ${hidden ? 'hidden' : ''}`} aria-hidden={hidden}>
-            <a href="#" className="social-item fb" aria-label="Facebook">
+            <a target='_blank' href="https://www.facebook.com/profile.php?id=61582625240262&locale=vi_VN" className="social-item fb" aria-label="Facebook">
                 <span className="social-icon" aria-hidden>{icons.facebook}</span>
                 <span className="sr-only">Facebook</span>
             </a>

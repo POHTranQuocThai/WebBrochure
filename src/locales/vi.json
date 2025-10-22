@@ -10,7 +10,8 @@
     "hero": {
         "title": "Tạo brochure trang web của bạn trong vài phút",
         "subtitle": "Không cần mã hóa. Chọn từ nhiều mẫu và tùy chỉnh chúng để phù hợp với thương hiệu của bạn.",
-        "getStarted": "Bắt đầu"
+        "getStarted": "Bắt đầu",
+        "videoFallback": "Trình duyệt của bạn không hỗ trợ video nền."
     },
     "steps": {
         "step1": "Chọn mẫu",
@@ -18,6 +19,66 @@
         "step3": "Tải brochure"
     },
     "footer": {
-        "text": "© 2025 WebBrochure. Tất cả quyền được bảo lưu."
+        "text": "© 2025 Eatery Guide. Tất cả quyền được bảo lưu.",
+        "links": {
+            "about": "Về chúng tôi",
+            "contact": "Liên hệ",
+            "privacy": "Chính sách bảo mật",
+            "terms": "Điều khoản dịch vụ"
+        },
+        "tagline": "Khám phá các điểm tham quan và thưởng thức ẩm thực địa phương — trải nghiệm không thể bỏ lỡ cho mọi du khách."
+    },
+    "productHook": {
+        "title": "Cẩm nang ẩm thực",
+        "description": "Khám phá hương vị tuyệt vời trong cuộc sống và ghi nhớ những món salad cân bằng dinh dưỡng do đầu bếp chế biến dành riêng cho bạn.",
+        "steps": {
+            "checkin": {
+                "title": "Check-in",
+                "subtitle": "Chụp ảnh lưu niệm"
+            },
+            "dining": {
+                "title": "Ăn uống",
+                "subtitle": "Thưởng thức món ngon"
+            },
+            "sightseeing": {
+                "title": "Tham quan",
+                "subtitle": "Khám phá cảnh quan"
+            }
+        }
+    },
+    "productsSection": {
+        "title": "Bạn muốn mang lại cảm xúc gì cho du khách?"
+    },
+    "products": {
+        "orderNow": "Đặt ngay",
+        "caesar": {
+            "title": "Salad Caesar hảo hạng",
+            "description": "Trải nghiệm sự cân bằng hoàn hảo giữa rau romaine giòn, phô mai parmesan lâu năm và sốt Caesar kem đặc trứ danh. Chế biến từ nguyên liệu hữu cơ tươi nhất và rắc bánh mì croutons nhà làm tạo độ giòn hoàn hảo."
+        }
+    },
+    "contest": {
+        "title": "Ưu đãi chớp nhoáng",
+        "subtitle": "Nhanh tay đặt hàng ngay để nhận nhiều ưu đãi!",
+        "hours": "Giờ",
+        "minutes": "Phút",
+        "seconds": "Giây",
+        "contactNow": "Liên hệ ngay"
+    },
+    "contact": {
+        "title": "Liên hệ",
+        "lead": "Cho chúng tôi biết thông tin của bạn, chúng tôi sẽ liên hệ sớm.",
+        "nameLabel": "Họ và tên",
+        "namePlaceholder": "Nguyễn Văn A",
+        "emailLabel": "Email",
+        "emailPlaceholder": "email@domain.com",
+        "phoneLabel": "Số điện thoại",
+        "phonePlaceholder": "090 123 4567",
+        "submit": "Gửi thông tin",
+        "sent": "Đã gửi ✓",
+        "errors": {
+            "nameRequired": "Vui lòng nhập tên",
+            "emailInvalid": "Email không hợp lệ",
+            "phoneInvalid": "Số điện thoại không hợp lệ"
+        }
     }
 }

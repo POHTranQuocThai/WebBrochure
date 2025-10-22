@@ -1,7 +1,17 @@
 import { Section } from "./Section";
+import { useTranslation } from "react-i18next";
 import imgHeroProduct from "../assets/img/productImg/prod2.png";
 
 const ProductHook = ({ steps, currentProductHook }) => {
+    const { t } = useTranslation();
+    // Always take text from i18n so it switches languages; use provided icons if available.
+    const ids = ["checkin", "dining", "sightseeing"];
+    const defaultIcons = { checkin: "📸", dining: "🍽️", sightseeing: "🗺️" };
+    const displaySteps = ids.map((id, i) => ({
+        icon: (Array.isArray(steps) && steps[i]?.icon) || defaultIcons[id],
+        title: t(`productHook.steps.${id}.title`),
+        subtitle: t(`productHook.steps.${id}.subtitle`),
+    }));
     return (
         <Section id="about" className="section product-hook-section">
             <div className="container">
@@ -21,16 +31,15 @@ const ProductHook = ({ steps, currentProductHook }) => {
 
                     <div className="product-hook-text">
                         <h1 className="product-hook-title">
-                            <span className="product-hook-title-accent"> Eatery Guide</span>
+                            <span className="product-hook-title-accent">{t('productHook.title')}</span>
                         </h1>
 
                         <p className="product-hook-description">
-                            Discover about about the best food in your life and always remember our
-                            chef-prepared, nutritionally balanced salads specially made for you
+                            {t('productHook.description')}
                         </p>
 
                         <div className="steps-container">
-                            {steps.map((step, index) => (
+                            {displaySteps.map((step, index) => (
                                 <div key={index} className="step">
                                     <div className="step-icon">{step.icon}</div>
                                     <h3 className="step-title">{step.title}</h3>

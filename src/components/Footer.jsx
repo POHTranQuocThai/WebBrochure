@@ -1,16 +1,19 @@
+import { useTranslation } from 'react-i18next';
+
 const Footer = () => {
+    const { t } = useTranslation();
     return (
         <footer className="footer">
             <div className="container">
                 <div className="footer-links">
-                    {['About Us', 'Contact', 'Privacy Policy', 'Terms of Service'].map((link) => (
-                        <a key={link} href="#" className="footer-link">
+                    {[t('footer.links.about'), t('footer.links.contact'), t('footer.links.privacy'), t('footer.links.terms')].map((link, idx) => (
+                        <a key={idx} href="#" className="footer-link">
                             {link}
                         </a>
                     ))}
                 </div>
                 <div className="footer-social" aria-label="Theo dõi chúng tôi">
-                    <a href="#" className="social-item fb" aria-label="Facebook">
+                    <a target='_blank' href="https://www.facebook.com/profile.php?id=61582625240262&locale=vi_VN" className="social-item fb" aria-label="Facebook">
                         <span className="social-icon" aria-hidden>
                             <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
                                 <path fill="currentColor" d="M22 12.06C22 6.48 17.52 2 11.94 2 6.36 2 1.88 6.48 1.88 12.06c0 4.94 3.62 9.05 8.36 9.88v-6.99H7.84v-2.9h2.4V9.83c0-2.37 1.41-3.68 3.56-3.68 1.03 0 2.12.18 2.12.18v2.32h-1.2c-1.18 0-1.55.73-1.55 1.48v1.77h2.64l-.42 2.9h-2.22v6.99c4.74-.83 8.36-4.94 8.36-9.88Z" />
@@ -47,11 +50,11 @@ const Footer = () => {
                 <div className="footer-bottom">
                     <div className="footer-love">
                         <span className="heart">❤️</span>
-                        <p className="footer-tagline">Khám phá các điểm tham quan và thưởng thức ẩm thực địa phương — trải nghiệm không thể bỏ lỡ cho mọi du khách.</p>
+                        <p className="footer-tagline">{t('footer.tagline')}</p>
                         <span className="heart">❤️</span>
                     </div>
 
-                    <p className="footer-copyright">© 2025 Eatery Guide. All rights reserved.</p>
+                    <p className="footer-copyright">{t('footer.text')}</p>
                 </div>
             </div>
         </footer>

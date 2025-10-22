@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Section } from "./Section";
 
 // Helper to format VND without decimals
@@ -6,6 +7,7 @@ const formatVND = (value) =>
     new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', maximumFractionDigits: 0 }).format(value);
 
 const Contest = ({ baseHours = 48, oldPrice = 199000, newPrice = 99000 }) => {
+    const { t } = useTranslation();
     const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
     const endRef = useRef(null);
 
@@ -37,16 +39,16 @@ const Contest = ({ baseHours = 48, oldPrice = 199000, newPrice = 99000 }) => {
             <div className="container">
                 <div className="text-center">
                     <h2 className="contest-title">
-                        <span className="contest-title-accent">Flash Sale</span>
+                        <span className="contest-title-accent">{t('contest.title')}</span>
                     </h2>
 
-                    <p className="contest-subtitle">Nhanh tay đặt hàng ngay để nhận được nhiều ưu đãi!</p>
+                    <p className="contest-subtitle">{t('contest.subtitle')}</p>
 
                     <div className="countdown-container">
                         {[
-                            { value: timeLeft.hours, label: 'Hours' },
-                            { value: timeLeft.minutes, label: 'Minutes' },
-                            { value: timeLeft.seconds, label: 'Seconds' }
+                            { value: timeLeft.hours, label: t('contest.hours') },
+                            { value: timeLeft.minutes, label: t('contest.minutes') },
+                            { value: timeLeft.seconds, label: t('contest.seconds') }
                         ].map((item) => (
                             <div key={item.label} className="countdown-item">
                                 <div className="countdown-number">{String(item.value ?? 0).padStart(2, '0')}</div>
@@ -59,7 +61,7 @@ const Contest = ({ baseHours = 48, oldPrice = 199000, newPrice = 99000 }) => {
                         className="price-section"
                         style={{ marginTop: 24, display: 'flex', alignItems: 'center', gap: 24, justifyContent: 'center', flexWrap: 'wrap' }}
                     >
-                        <div className="flash-badge" aria-hidden="true" title="Flash Sale">
+                        <div className="flash-badge" aria-hidden="true" title={t('contest.title')}>
                             <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false">
                                 <defs>
                                     <linearGradient id="flashGrad" x1="0" y1="0" x2="1" y2="1">
@@ -89,10 +91,10 @@ const Contest = ({ baseHours = 48, oldPrice = 199000, newPrice = 99000 }) => {
                             type="button"
                             className="btn btn-primary"
                             onClick={handleContactClick}
-                            aria-label="Liên hệ ngay"
+                            aria-label={t('contest.contactNow')}
                             style={{ paddingInline: 28 }}
                         >
-                            Liên hệ ngay
+                            {t('contest.contactNow')}
                         </button>
                     </div>
                 </div>

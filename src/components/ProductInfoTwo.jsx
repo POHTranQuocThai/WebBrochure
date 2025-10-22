@@ -1,8 +1,10 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { Section } from "./Section";
 import imgProduct1 from "../assets/img/productImg/prod2.png";
 
 const ProductInfoTwo = () => {
+    const { t } = useTranslation();
     // traveler removed; keep only path id for potential future use
     // Path id to reference in motionPath
     const pathId = useMemo(() => `travel-path-${Math.random().toString(36).slice(2)}`, []);
@@ -16,13 +18,11 @@ const ProductInfoTwo = () => {
                             <div className="cloud-card">
                                 <div className="cloud-content">
                                     <h3 className="product-title">
-                                        <span className="product-title-accent">Premium Caesar Salad</span>
+                                        <span className="product-title-accent">{t('products.caesar.title')}</span>
                                     </h3>
 
                                     <p className="product-description">
-                                        Experience the perfect balance of crispy romaine lettuce, aged parmesan cheese,
-                                        and our signature creamy Caesar dressing. Made with the freshest organic ingredients
-                                        and topped with house-made croutons for that perfect crunch.
+                                        {t('products.caesar.description')}
                                     </p>
 
                                     <div className="price-section">
@@ -31,7 +31,7 @@ const ProductInfoTwo = () => {
                                             <span className="old-price">$16.99</span>
                                         </div>
 
-                                        <button className="btn-primary">Order Now</button>
+                                        <button className="btn-primary">{t('products.orderNow')}</button>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@ const ProductInfoTwo = () => {
 
             <div className="bg-decoration" style={{ top: '80px', right: '80px', fontSize: '96px', color: 'var(--color-primary-green)' }}>🌿</div>
 
-            <div className="travel-path-wrap" style={{ '--travel-tilt': '-30deg' }}>
+            <div className="travel-path-wrap" style={{ '--travel-tilt': '-15deg' }}>
                 <div className="travel-viewport">
                     {/* Travel path overlay (visual) */}
                     <svg

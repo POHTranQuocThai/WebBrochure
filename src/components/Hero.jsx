@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Section } from "./Section";
 import HeroVideo from "../assets/videos/HeroVideo.mp4";
 import cloud from "../assets/img/cloud.png";
 
 const Hero = () => {
-
+    const { t } = useTranslation();
     return (
         <Section id="home" className="section hero-section">
             {/* Video nền */}
@@ -16,13 +17,13 @@ const Hero = () => {
                 className="bg-video"
             >
                 <source src={HeroVideo} type="video/mp4" />
-                Trình duyệt của bạn không hỗ trợ video nền.
+                {t('hero.videoFallback', 'Your browser does not support background video.')}
             </video>
 
             {/* Nội dung */}
             <div className="hero-content">
-                <h1>Chào mừng bạn!</h1>
-                <p>Đây là video nền chạy mượt, không logo, không khung YouTube.</p>
+                <h1>{t('hero.title')}</h1>
+                <p>{t('hero.subtitle')}</p>
             </div>
             <div className="bg-decoration bg-decoration-1">🌿</div>
             <div className="bg-decoration bg-decoration-2">✨</div>

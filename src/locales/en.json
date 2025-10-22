@@ -10,7 +10,8 @@
     "hero": {
         "title": "Create your own website brochure in minutes",
         "subtitle": "No coding required. Choose from a variety of templates and customize them to fit your brand.",
-        "getStarted": "Get Started"
+        "getStarted": "Get Started",
+        "videoFallback": "Your browser does not support background video."
     },
     "steps": {
         "step1": "Choose a template",
@@ -18,6 +19,66 @@
         "step3": "Download your brochure"
     },
     "footer": {
-        "text": "© 2024 WebBrochure. All rights reserved."
+        "text": "© 2025 Eatery Guide. All rights reserved.",
+        "links": {
+            "about": "About Us",
+            "contact": "Contact",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service"
+        },
+        "tagline": "Discover attractions and enjoy local cuisine — an unmissable experience for every traveler."
+    },
+    "productHook": {
+        "title": "Eatery Guide",
+        "description": "Discover the best flavors of your life and remember our chef-prepared, nutritionally balanced salads made just for you.",
+        "steps": {
+            "checkin": {
+                "title": "Check-in",
+                "subtitle": "Capture a memory"
+            },
+            "dining": {
+                "title": "Dining",
+                "subtitle": "Savor delicious dishes"
+            },
+            "sightseeing": {
+                "title": "Sightseeing",
+                "subtitle": "Explore the scenery"
+            }
+        }
+    },
+    "productsSection": {
+        "title": "What emotions do you want to experience with our guests?"
+    },
+    "products": {
+        "orderNow": "Order Now",
+        "caesar": {
+            "title": "Premium Caesar Salad",
+            "description": "Experience the perfect balance of crispy romaine lettuce, aged parmesan cheese, and our signature creamy Caesar dressing. Made with the freshest organic ingredients and topped with house-made croutons for that perfect crunch."
+        }
+    },
+    "contest": {
+        "title": "Flash Sale",
+        "subtitle": "Hurry up and order now to get special offers!",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "seconds": "Seconds",
+        "contactNow": "Contact now"
+    },
+    "contact": {
+        "title": "Contact",
+        "lead": "Share your information and we'll get back to you soon.",
+        "nameLabel": "Full name",
+        "namePlaceholder": "John Doe",
+        "emailLabel": "Email",
+        "emailPlaceholder": "email@domain.com",
+        "phoneLabel": "Phone number",
+        "phonePlaceholder": "090 123 4567",
+        "submit": "Send information",
+        "sent": "Sent ✓",
+        "errors": {
+            "nameRequired": "Please enter your name",
+            "emailInvalid": "Invalid email address",
+            "phoneInvalid": "Invalid phone number"
+        }
     }
 }

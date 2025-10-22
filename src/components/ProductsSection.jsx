@@ -1,13 +1,15 @@
 import { Section } from "./Section";
+import { useTranslation } from "react-i18next";
 import ProductCarousel from "./ProductCarousel";
 
 const ProductsSection = ({ products }) => {
+    const { t } = useTranslation();
     return (
-        <Section id="highlights" className="section products-section">
+        <Section id="highlights" className="section products-section" aria-labelledby="products-title">
             <div className="container">
-                <h2 className="products-title">
+                <h2 id="products-title" className="products-title">
                     <span className="products-title-accent">
-                        What emotions do you want to experience with our guests?
+                        {t('productsSection.title')}
                     </span>
                 </h2>
                 <ProductCarousel products={products} />
