@@ -1,0 +1,23 @@
+{
+    "header": {
+        "home": "Trang chủ",
+        "about": "Về chúng tôi",
+        "products": "Sản phẩm",
+        "order": "Đặt hàng",
+        "highlights": "Điểm nổi bật",
+        "contact": "Liên hệ"
+    },
+    "hero": {
+        "title": "Tạo brochure trang web của bạn trong vài phút",
+        "subtitle": "Không cần mã hóa. Chọn từ nhiều mẫu và tùy chỉnh chúng để phù hợp với thương hiệu của bạn.",
+        "getStarted": "Bắt đầu"
+    },
+    "steps": {
+        "step1": "Chọn mẫu",
+        "step2": "Tùy chiện brochure",
+        "step3": "Tải brochure"
+    },
+    "footer": {
+        "text": "© 2025 WebBrochure. Tất cả quyền được bảo lưu."
+    }
+}

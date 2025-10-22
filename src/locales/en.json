@@ -1,0 +1,23 @@
+{
+    "header": {
+        "home": "Home",
+        "about": "About",
+        "products": "Products",
+        "order": "Order",
+        "highlights": "Highlights",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "Create your own website brochure in minutes",
+        "subtitle": "No coding required. Choose from a variety of templates and customize them to fit your brand.",
+        "getStarted": "Get Started"
+    },
+    "steps": {
+        "step1": "Choose a template",
+        "step2": "Customize your brochure",
+        "step3": "Download your brochure"
+    },
+    "footer": {
+        "text": "© 2024 WebBrochure. All rights reserved."
+    }
+}
