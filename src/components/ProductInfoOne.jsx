@@ -55,7 +55,7 @@ const ProductInfoOne = () => {
 
             <div className="bg-decoration" style={{ top: '80px', right: '80px', fontSize: '96px', color: 'var(--color-primary-green)' }}>🌿</div>
 
-            <div className="travel-path-wrap" style={{ top: '-44px', left: '50px' }}>
+            <div className="travel-path-wrap">
                 <div className="travel-viewport">
                     {/* Travel path overlay (visual) */}
                     <svg

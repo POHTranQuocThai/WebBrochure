@@ -1,11 +1,17 @@
 .carousel-container {
     position: relative;
-    width: 800px;
-    height: 400px;
-    margin: auto;
+    /* Responsive sizing */
+    --size: clamp(160px, 45vw, 360px);
+    --shift1: clamp(80px, 22vw, 220px);
+    --shift2: clamp(140px, 38vw, 360px);
+    width: min(100%, 920px);
+    height: clamp(220px, 52vw, 420px);
+    margin: 0 auto;
+    padding: 0 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .carousel-stage {
@@ -20,14 +26,12 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 350px;
-    height: 350px;
+    width: var(--size);
+    height: var(--size);
     transform: translate(-50%, -50%);
-    transition: all 0.5s ease;
+    transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.3s ease;
     opacity: 0;
     cursor: pointer;
-    /* để user biết click được */
-    transition: all 0.5s ease;
 }
 
 .carousel-item img {
@@ -48,25 +52,25 @@
 }
 
 .carousel-item.left1 {
-    transform: translate(calc(-50% - 200px), -50%) scale(0.85);
+    transform: translate(calc(-50% - var(--shift1)), -50%) scale(0.85);
     opacity: 0.9;
     z-index: 2;
 }
 
 .carousel-item.left2 {
-    transform: translate(calc(-50% - 350px), -50%) scale(0.7);
+    transform: translate(calc(-50% - var(--shift2)), -50%) scale(0.7);
     opacity: 0.5;
     z-index: 1;
 }
 
 .carousel-item.right1 {
-    transform: translate(calc(-50% + 200px), -50%) scale(0.85);
+    transform: translate(calc(-50% + var(--shift1)), -50%) scale(0.85);
     opacity: 0.9;
     z-index: 2;
 }
 
 .carousel-item.right2 {
-    transform: translate(calc(-50% + 350px), -50%) scale(0.7);
+    transform: translate(calc(-50% + var(--shift2)), -50%) scale(0.7);
     opacity: 0.5;
     z-index: 1;
 }
@@ -105,4 +109,29 @@
 .nav-btn.right {
     position: absolute;
     right: -50px;
+}
+
+/* Small devices fine tuning */
+@media (max-width: 480px) {
+    .carousel-container {
+        --size: clamp(160px, 68vw, 280px);
+        --shift1: clamp(60px, 26vw, 160px);
+        --shift2: clamp(110px, 42vw, 240px);
+        height: clamp(200px, 70vw, 340px);
+        padding: 0 4px;
+    }
+
+    .carousel-item img {
+        border-radius: 14px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 900px) {
+    .carousel-container {
+        --size: clamp(200px, 48vw, 320px);
+        --shift1: clamp(80px, 18vw, 200px);
+        --shift2: clamp(140px, 34vw, 300px);
+        height: clamp(260px, 56vw, 380px);
+    }
 }
