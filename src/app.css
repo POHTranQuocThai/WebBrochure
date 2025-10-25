@@ -41,6 +41,11 @@ body {
   color: var(--text-gray);
 }
 
+span.lang-code {
+  font-family: var(--font-family);
+  color: var(--color-coral);
+}
+
 .website-container {
   min-height: 100vh;
   background: linear-gradient(135deg, var(--color-light-green) 0%, var(--color-medium-green) 50%, var(--color-primary-green) 100%);
@@ -960,6 +965,23 @@ body {
   position: relative;
   z-index: 4;
   left: 10px;
+}
+
+.highlights-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: bold;
+  color: #374151;
+  margin-bottom: 32px;
+  padding: 0 16px;
+  text-align: center;
+}
+
+
+.highlights-title-accent {
+  background: linear-gradient(135deg, var(--color-primary-red), var(--color-dark-green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .product-title {

@@ -49,6 +49,9 @@
     "productsSection": {
         "title": "お客様とどんな感動を分かち合いたいですか？"
     },
+    "highlightsSection": {
+        "title": "注目の料理トップ"
+    },
     "products": {
         "orderNow": "今すぐ注文",
         "caesar": {

@@ -12,6 +12,7 @@ import hl7 from "../assets/img/highlights/hl7.jpg";
 import hl8 from "../assets/img/highlights/hl8.jpg";
 import hl9 from "../assets/img/highlights/hl9.jpg";
 import hl10 from "../assets/img/highlights/hl10.jpg";
+import { useEffect, useState } from "react";
 
 
 const reviews = [
@@ -78,49 +79,71 @@ const ReviewCard = ({
 }
 
 export function Marquee3D() {
+     const [cardSize, setCardSize] = useState("16rem");
+
+  useEffect(() => {
+    const updateSize = () => {
+      if (window.innerWidth < 640) setCardSize("9rem");      // mobile
+      else if (window.innerWidth < 1024) setCardSize("12rem"); // tablet
+      else setCardSize("16rem");                              // desktop
+    };
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
     return (
-        <div
-            className="relative flex h-[34rem] w-full items-center justify-center overflow-hidden"
-            style={{
-                // unified size for ALL cards (bigger)
-                ['--card-size' as any]: '16rem',
-            }}
-        >
+     <div
+  className="
+    relative flex h-[34rem] w-full items-center justify-center overflow-hidden"
+  style={{
+    ['--card-size' as any]: cardSize, // fallback khi Tailwind chưa load
+  }}
+>
+
             {/* Parallelogram wrapper */}
             <div
                 className="relative mx-auto h-[30rem] w-[min(1200px,90vw)] overflow-hidden [clip-path:polygon(8%_0,100%_0,92%_100%,0_100%)] skew-x-6"
                 style={{ perspective: '800px' }}
             >
                 <div
-                    className="flex h-full flex-row items-center justify-center gap-6 [perspective:300px]"
-                    style={{
-                        transform:
-                            // soften 3D to reduce aliasing/jitter
-                            'translateX(-40px) translateZ(-60px) rotateX(12deg) rotateY(-8deg) rotateZ(8deg)',
-                    }}
-                >
-                    {/* Outer columns up (default), inner columns down (reverse) */}
-                    <Marquee pauseOnHover vertical className="transform-gpu will-change-transform ease-linear [--duration:17s]">
-                        {firstRow.map((review) => (
-                            <ReviewCard key={review.img} {...review} />
-                        ))}
-                    </Marquee>
-                    <Marquee reverse pauseOnHover className="transform-gpu will-change-transform ease-linear [--duration:18s]" vertical>
-                        {secondRow.map((review) => (
-                            <ReviewCard key={review.img} {...review} />
-                        ))}
-                    </Marquee>
-                    <Marquee reverse pauseOnHover className="transform-gpu will-change-transform ease-linear [--duration:16s]" vertical>
-                        {thirdRow.map((review) => (
-                            <ReviewCard key={review.img} {...review} />
-                        ))}
-                    </Marquee>
-                    <Marquee pauseOnHover className="transform-gpu will-change-transform ease-linear [--duration:19s]" vertical>
-                        {fourthRow.map((review) => (
-                            <ReviewCard key={review.img} {...review} />
-                        ))}
-                    </Marquee>
-                </div>
+  className="
+    flex h-full flex-row items-center justify-center gap-2 sm:gap-3 md:gap-6 [perspective:300px]
+    md:[transform:translateX(-40px)_translateZ(-60px)_rotateX(12deg)_rotateY(-8deg)_rotateZ(8deg)]
+  "
+>
+
+  {/* Outer columns up (default), inner columns down (reverse) */}
+  {/* Cột 1 – Ẩn trên mobile */}
+  <Marquee
+    pauseOnHover
+    vertical
+    className="hidden md:!flex transform-gpu will-change-transform ease-linear [--duration:17s]"
+  >
+    {firstRow.map((review) => (
+      <ReviewCard key={review.img} {...review} />
+    ))}
+  </Marquee>
+  <Marquee reverse pauseOnHover className="transform-gpu will-change-transform ease-linear [--duration:18s]" vertical>
+    {secondRow.map((review) => (
+      <ReviewCard key={review.img} {...review} />
+    ))}
+  </Marquee>
+  <Marquee reverse pauseOnHover className="transform-gpu will-change-transform ease-linear [--duration:16s]" vertical>
+    {thirdRow.map((review) => (
+      <ReviewCard key={review.img} {...review} />
+    ))}
+  </Marquee>
+  {/* Cột 4 – Ẩn trên mobile */}
+  <Marquee
+    pauseOnHover
+    className="hidden md:!flex transform-gpu will-change-transform ease-linear [--duration:19s]"
+    vertical
+  >
+    {fourthRow.map((review) => (
+      <ReviewCard key={review.img} {...review} />
+    ))}
+  </Marquee>
+</div>
 
                 {/* Edge fades inside the parallelogram */}
                 <div className="from-background pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b"></div>

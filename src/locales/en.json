@@ -49,6 +49,9 @@
     "productsSection": {
         "title": "What emotions do you want to experience with our guests?"
     },
+    "highlightsSection": {
+        "title": "Top food highlights"
+    },
     "products": {
         "orderNow": "Order Now",
         "caesar": {
