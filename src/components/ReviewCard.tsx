@@ -1,24 +1,49 @@
 /* eslint-disable @next/next/no-img-element */
 import { cn } from "@/lib/utils"
 import { Marquee } from "@/components/ui/marquee"
+import './../index.css'
+import hl1 from "../assets/img/highlights/hl1.jpg";
+import hl2 from '../assets/img/highlights/hl2.jpg'
+import hl3 from "../assets/img/highlights/hl3.jpg";
+import hl4 from "../assets/img/highlights/hl4.jpg";
+import hl5 from "../assets/img/highlights/hl5.jpg";
+import hl6 from "../assets/img/highlights/hl6.jpg";
+import hl7 from "../assets/img/highlights/hl7.jpg";
+import hl8 from "../assets/img/highlights/hl8.jpg";
+import hl9 from "../assets/img/highlights/hl9.jpg";
+import hl10 from "../assets/img/highlights/hl10.jpg";
+
+
 const reviews = [
     {
-        name: "Jack",
-        username: "@jack",
-        body: "I've never seen anything like this before. It's amazing. I love it.",
-        img: "https://avatar.vercel.sh/jack",
+        img: hl1,
     },
     {
-        name: "Jill",
-        username: "@jill",
-        body: "I don't know what to say. I'm speechless. This is amazing.",
-        img: "https://avatar.vercel.sh/jill",
+        img: hl2,
     },
     {
-        name: "John",
-        username: "@john",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/john",
+        img: hl3,
+    },
+    {
+        img: hl4,
+    },
+    {
+        img: hl5,
+    },
+    {
+        img: hl6,
+    },
+    {
+        img: hl7,
+    },
+    {
+        img: hl8,
+    },
+    {
+        img: hl9,
+    },
+    {
+        img: hl10,
     },
 ]
 
@@ -29,75 +54,80 @@ const fourthRow = reviews.slice(reviews.length / 2)
 
 const ReviewCard = ({
     img,
-    name,
-    username,
-    body,
 }: {
     img: string
-    name: string
-    username: string
-    body: string
 }) => {
     return (
         <figure
             className={cn(
-                "relative h-full w-fit cursor-pointer overflow-hidden rounded-xl border p-4 sm:w-36",
-                // light styles
-                "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-                // dark styles
-                "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+                // Bigger square card, image-only
+                "relative overflow-hidden rounded-xl cursor-pointer -skew-x-6",
+                // unified size via CSS variable so all cards are equal
+                "h-[var(--card-size)] w-[var(--card-size)]",
             )}
         >
-            <div className="flex flex-row items-center gap-2">
-                <img className="rounded-full" width="32" height="32" alt="" src={img} />
-                <div className="flex flex-col">
-                    <figcaption className="text-sm font-medium dark:text-white">
-                        {name}
-                    </figcaption>
-                    <p className="text-xs font-medium dark:text-white/40">{username}</p>
-                </div>
-            </div>
-            <blockquote className="mt-2 text-sm">{body}</blockquote>
+            <img
+                className="h-full w-full object-cover"
+                alt="highlight"
+                src={img}
+                loading="lazy"
+                decoding="async"
+            />
         </figure>
     )
 }
 
 export function Marquee3D() {
     return (
-        <div className="relative flex h-96 w-full flex-row items-center justify-center gap-4 overflow-hidden [perspective:300px]">
+        <div
+            className="relative flex h-[34rem] w-full items-center justify-center overflow-hidden"
+            style={{
+                // unified size for ALL cards (bigger)
+                ['--card-size' as any]: '16rem',
+            }}
+        >
+            {/* Parallelogram wrapper */}
             <div
-                className="flex flex-row items-center gap-4"
-                style={{
-                    transform:
-                        "translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)",
-                }}
+                className="relative mx-auto h-[30rem] w-[min(1200px,90vw)] overflow-hidden [clip-path:polygon(8%_0,100%_0,92%_100%,0_100%)] skew-x-6"
+                style={{ perspective: '800px' }}
             >
-                <Marquee pauseOnHover vertical className="[--duration:20s]">
-                    {firstRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-                <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
-                    {secondRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-                <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
-                    {thirdRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-                <Marquee pauseOnHover className="[--duration:20s]" vertical>
-                    {fourthRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-            </div>
+                <div
+                    className="flex h-full flex-row items-center justify-center gap-6 [perspective:300px]"
+                    style={{
+                        transform:
+                            // soften 3D to reduce aliasing/jitter
+                            'translateX(-40px) translateZ(-60px) rotateX(12deg) rotateY(-8deg) rotateZ(8deg)',
+                    }}
+                >
+                    {/* Outer columns up (default), inner columns down (reverse) */}
+                    <Marquee pauseOnHover vertical className="transform-gpu will-change-transform ease-linear [--duration:17s]">
+                        {firstRow.map((review) => (
+                            <ReviewCard key={review.img} {...review} />
+                        ))}
+                    </Marquee>
+                    <Marquee reverse pauseOnHover className="transform-gpu will-change-transform ease-linear [--duration:18s]" vertical>
+                        {secondRow.map((review) => (
+                            <ReviewCard key={review.img} {...review} />
+                        ))}
+                    </Marquee>
+                    <Marquee reverse pauseOnHover className="transform-gpu will-change-transform ease-linear [--duration:16s]" vertical>
+                        {thirdRow.map((review) => (
+                            <ReviewCard key={review.img} {...review} />
+                        ))}
+                    </Marquee>
+                    <Marquee pauseOnHover className="transform-gpu will-change-transform ease-linear [--duration:19s]" vertical>
+                        {fourthRow.map((review) => (
+                            <ReviewCard key={review.img} {...review} />
+                        ))}
+                    </Marquee>
+                </div>
 
-            <div className="from-background pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b"></div>
-            <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t"></div>
-            <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
-            <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
+                {/* Edge fades inside the parallelogram */}
+                <div className="from-background pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b"></div>
+                <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t"></div>
+                <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
+                <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
+            </div>
         </div>
     )
 }

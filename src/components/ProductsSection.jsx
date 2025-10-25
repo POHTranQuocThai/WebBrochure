@@ -5,7 +5,7 @@ import ProductCarousel from "./ProductCarousel";
 const ProductsSection = ({ products }) => {
     const { t } = useTranslation();
     return (
-        <Section id="highlights" className="section products-section" aria-labelledby="products-title">
+        <Section className="section products-section" aria-labelledby="products-title">
             <div className="container">
                 <h2 id="products-title" className="products-title">
                     <span className="products-title-accent">

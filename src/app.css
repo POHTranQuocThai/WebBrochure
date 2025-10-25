@@ -1271,6 +1271,12 @@ body {
   gap: 16px;
 }
 
+.products-section {
+  background-color: var(--color-sand);
+}
+
+
+
 /* ---- Reveal-on-scroll (generic) ---- */
 .section.revealable {
   opacity: 0;

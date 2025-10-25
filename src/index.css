@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind utilities;
+
+/* 🌀 Marquee animation cho chiều ngang */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* 🌀 Marquee animation cho chiều dọc */
+@keyframes marquee-vertical {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+/* 📦 Gán animation vào class */
+.animate-marquee {
+    animation: marquee var(--duration) linear infinite;
+}
+
+.animate-marquee-vertical {
+    animation: marquee-vertical var(--duration) linear infinite;
+}
+
+/* 🌀 Marquee animation chiều dọc (đảo chiều đi xuống) */
+@keyframes marquee-vertical-reverse {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(50%);
+    }
+}
+
+.animate-marquee-vertical-reverse {
+    animation: marquee-vertical-reverse var(--duration) linear infinite;
+}
+
+/* Responsive card size for Highlights marquee */
+.marquee-card {
+    /* Default (desktop/tablet) card size */
+    --card-size: 16rem;
+}
+
+@media (max-width: 640px) {
+    .marquee-card {
+        /* Smaller cards on small screens */
+        --card-size: 11rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .marquee-card {
+        /* Extra small phones */
+        --card-size: 9.5rem;
+    }
+}

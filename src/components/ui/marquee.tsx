@@ -60,10 +60,16 @@ export function Marquee({
           <div
             key={i}
             className={cn("flex shrink-0 justify-around [gap:var(--gap)]", {
+              // Horizontal
               "animate-marquee flex-row": !vertical,
-              "animate-marquee-vertical flex-col": vertical,
+              // Vertical up (default)
+              "animate-marquee-vertical flex-col": vertical && !reverse,
+              // Vertical down (explicit reverse keyframe)
+              "animate-marquee-vertical-reverse flex-col": vertical && reverse,
+              // Pause on hover support
               "group-hover:[animation-play-state:paused]": pauseOnHover,
-              "[animation-direction:reverse]": reverse,
+              // Only use CSS animation-direction reverse for horizontal
+              "[animation-direction:reverse]": !vertical && reverse,
             })}
           >
             {children}

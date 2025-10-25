@@ -11,6 +11,16 @@ import Contest from "./components/Contest";
 import Footer from "./components/Footer";
 import ContactForm from './components/ContactForm';
 import SocialFloat from './components/SocialFloat';
+import HighLights from "./components/HighLights";
+
+
+import pr1 from "./assets/img/pr1.jpg"
+import pr2 from "./assets/img/pr2.jpg";
+import pr3 from "./assets/img/pr3.jpg";
+import pr4 from "./assets/img/pr4.jpg";
+import pr5 from "./assets/img/pr5.jpg";
+import pr6 from "./assets/img/pr6.jpg";
+
 
 const FreshSaladWebsite = () => {
   const { t } = useTranslation();
@@ -87,67 +97,44 @@ const FreshSaladWebsite = () => {
     }
   ];
 
-  const ProductHooks = [
-    {
-      name: "Anna Koroleva",
-      role: "Nutritionist",
-      avatar: "https://placeholder-image-service.onrender.com/image/80x80?prompt=Professional woman with short brown hair smiling warmly&id=8554007a-abd8-4d7f-b548-c85bed7e3b5b&customer_id=cus_T2SRLsJfPHKhQt",
-      content: "These salads have transformed my clients' approach to healthy eating. Fresh, delicious, and perfectly balanced nutrition.",
-      rating: 5
-    },
-    {
-      name: "Alex Petrov",
-      role: "Fitness Coach",
-      avatar: "https://placeholder-image-service.onrender.com/image/80x80?prompt=Athletic man with blonde hair in fitness attire&id=8554007a-abd8-4d7f-b548-c85bed7e3b5b&customer_id=cus_T2SRLsJfPHKhQt",
-      content: "I recommend Fresh Del Cabo to all my clients. The quality is unmatched and the variety keeps meals exciting.",
-      rating: 5
-    },
-    {
-      name: "Maria Ivanova",
-      role: "Chef",
-      avatar: "https://placeholder-image-service.onrender.com/image/80x80?prompt=Professional female chef with dark hair in white chef coat&id=8554007a-abd8-4d7f-b548-c85bed7e3b5b&customer_id=cus_T2SRLsJfPHKhQt",
-      content: "As a professional chef, I'm impressed by the freshness and quality. These ingredients inspire creativity.",
-      rating: 5
-    }
-  ];
 
   const products = [
     {
       name: "Mediterranean Delight",
       description: "Fresh tomatoes, olives, feta cheese with herbs",
-      image: "https://placeholder-image-service.onrender.com/image/300x300?prompt=Mediterranean salad with tomatoes olives feta cheese and fresh herbs on white plate&id=8554007a-abd8-4d7f-b548-c85bed7e3b5b&customer_id=cus_T2SRLsJfPHKhQt",
+      image: pr1,
       price: "$12.99"
     },
     {
-      name: "Protein Power Bowl",
-      description: "Grilled chicken, quinoa, avocado with lime dressing",
-      image: "https://placeholder-image-service.onrender.com/image/300x300?prompt=Protein rich salad bowl with grilled chicken quinoa avocado and lime dressing&id=8554007a-abd8-4d7f-b548-c85bed7e3b5b&customer_id=cus_T2SRLsJfPHKhQt",
-      price: "$14.99"
+      name: "Mediterranean Delight",
+      description: "Fresh tomatoes, olives, feta cheese with herbs",
+      image: pr2,
+      price: "$12.99"
     },
     {
-      name: "Garden Fresh Mix",
-      description: "Seasonal vegetables with house vinaigrette",
-      image: "https://placeholder-image-service.onrender.com/image/300x300?prompt=Fresh garden salad with mixed seasonal vegetables and vinaigrette dressing&id=8554007a-abd8-4d7f-b548-c85bed7e3b5b&customer_id=cus_T2SRLsJfPHKhQt",
-      price: "$10.99"
+      name: "Mediterranean Delight",
+      description: "Fresh tomatoes, olives, feta cheese with herbs",
+      image: pr3,
+      price: "$12.99"
     },
     {
-      name: "Garden Fresh Mix",
-      description: "Seasonal vegetables with house vinaigrette",
-      image: "https://placeholder-image-service.onrender.com/image/300x300?prompt=Fresh garden salad with mixed seasonal vegetables and vinaigrette dressing&id=8554007a-abd8-4d7f-b548-c85bed7e3b5b&customer_id=cus_T2SRLsJfPHKhQt",
-      price: "$10.99"
+      name: "Mediterranean Delight",
+      description: "Fresh tomatoes, olives, feta cheese with herbs",
+      image: pr4,
+      price: "$12.99"
     },
     {
-      name: "Garden Fresh Mix",
-      description: "Seasonal vegetables with house vinaigrette",
-      image: "https://placeholder-image-service.onrender.com/image/300x300?prompt=Fresh garden salad with mixed seasonal vegetables and vinaigrette dressing&id=8554007a-abd8-4d7f-b548-c85bed7e3b5b&customer_id=cus_T2SRLsJfPHKhQt",
-      price: "$10.99"
+      name: "Mediterranean Delight",
+      description: "Fresh tomatoes, olives, feta cheese with herbs",
+      image: pr5,
+      price: "$12.99"
     },
     {
-      name: "Garden Fresh Mix",
-      description: "Seasonal vegetables with house vinaigrette",
-      image: "https://placeholder-image-service.onrender.com/image/300x300?prompt=Fresh garden salad with mixed seasonal vegetables and vinaigrette dressing&id=8554007a-abd8-4d7f-b548-c85bed7e3b5b&customer_id=cus_T2SRLsJfPHKhQt",
-      price: "$10.99"
-    }
+      name: "Mediterranean Delight",
+      description: "Fresh tomatoes, olives, feta cheese with herbs",
+      image: pr6,
+      price: "$12.99"
+    },
   ];
 
   return (
@@ -178,6 +165,7 @@ const FreshSaladWebsite = () => {
         {/* Contest Section */}
         <Contest timeLeft={timeLeft} />
 
+        <HighLights />
         {/* Products Section (existing) */}
         <ProductsSection products={products} />
 
