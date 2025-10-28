@@ -83,5 +83,16 @@
             "emailInvalid": "Email không hợp lệ",
             "phoneInvalid": "Số điện thoại không hợp lệ"
         }
+    },
+    "flipbook": {
+        "coverTitle": "Danh mục sản phẩm",
+        "coverSubtitle": "Khám phá những điểm nổi bật của chúng tôi",
+        "backTitle": "Cảm ơn bạn",
+        "backSubtitle": "Khám phá thêm tại website của chúng tôi",
+        "insideTitle": "Giới thiệu",
+        "insideBody": "Đây là quyển sổ tay toàn năng lưu trữ lại toàn bộ khoảnh khắc và cảnh đẹp của một số địa điểm có bên trong sản phẩm của chúng tôi, để mọi người có một nơi để check-in sống ảo, tận hưởng những không gian mà bạn chưa từng biết tới. Mọi thứ được chứa đựng bên trong quyển sách này.",
+        "insideBackTitle": "Ghi chú",
+        "insideBackBody": "Nếu bạn có hứng thú hoặc muốn trãi nghiệm thử sản phẩm bên mình thì hãy nhấn nút bên dưới để được trãi nghiệm sản phẩm với giá ưu đãi.",
+        "ctaHint": "Ưu đãi có hạn"
     }
 }

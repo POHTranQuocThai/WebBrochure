@@ -2,49 +2,62 @@
 import { cn } from "@/lib/utils"
 import { Marquee } from "@/components/ui/marquee"
 import './../index.css'
-import hl1 from "../assets/img/highlights/hl1.jpg";
-import hl2 from '../assets/img/highlights/hl2.jpg'
-import hl3 from "../assets/img/highlights/hl3.jpg";
-import hl4 from "../assets/img/highlights/hl4.jpg";
-import hl5 from "../assets/img/highlights/hl5.jpg";
-import hl6 from "../assets/img/highlights/hl6.jpg";
-import hl7 from "../assets/img/highlights/hl7.jpg";
-import hl8 from "../assets/img/highlights/hl8.jpg";
-import hl9 from "../assets/img/highlights/hl9.jpg";
-import hl10 from "../assets/img/highlights/hl10.jpg";
+import i1 from "../assets/img/highlights/i1.png";
+import i2 from "../assets/img/highlights/i2.png";
+import i3 from "../assets/img/highlights/i3.png";
+import i4 from "../assets/img/highlights/i4.png";
+import i5 from "../assets/img/highlights/i5.png";
+import i6 from "../assets/img/highlights/i6.png";
+import i7 from "../assets/img/highlights/i7.png";
+import i8 from "../assets/img/highlights/i8.png";
+import i9 from "../assets/img/highlights/i9.png";
+import i10 from "../assets/img/highlights/i10.png";
+import i11 from "../assets/img/highlights/i11.png";
+import i12 from "../assets/img/highlights/i12.png";
+import i13 from "../assets/img/highlights/i13.png";
+
 import { useEffect, useState } from "react";
 
 
 const reviews = [
     {
-        img: hl1,
+        img: i1,
     },
     {
-        img: hl2,
+        img: i2,
     },
     {
-        img: hl3,
+        img: i3,
     },
     {
-        img: hl4,
+        img: i4,
     },
     {
-        img: hl5,
+        img: i5,
     },
     {
-        img: hl6,
+        img: i6,
     },
     {
-        img: hl7,
+        img: i7,
     },
     {
-        img: hl8,
+        img: i8,
     },
     {
-        img: hl9,
+        img: i9,
     },
     {
-        img: hl10,
+        img: i10,
+    },
+    {
+        img: i11,
+    },
+    {
+        img: i12,
+    },
+    {
+        img: i13,
     },
 ]
 
@@ -68,8 +81,8 @@ const ReviewCard = ({
             )}
         >
             <img
-                className="h-full w-full object-cover"
-                alt="highlight"
+        className="h-full w-full object-cover"
+        alt="highlight"
                 src={img}
                 loading="lazy"
                 decoding="async"

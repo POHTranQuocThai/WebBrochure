@@ -1134,6 +1134,15 @@ span.lang-code {
   transform: translateY(-2px);
 }
 
+/* Themed gradient hover only for primary buttons - visibly different from base */
+.btn-primary:hover {
+  /* Base: primary-red → dark-green; Hover: medium-red → primary-red for a warm lift */
+  background: linear-gradient(135deg, var(--color-medium-red), var(--color-light-beige)) !important;
+  color: var(--color-sand) !important;
+  border-color: transparent !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18) !important;
+}
+
 .countdown-container {
   display: flex;
   flex-wrap: wrap;

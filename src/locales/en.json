@@ -83,5 +83,16 @@
             "emailInvalid": "Invalid email address",
             "phoneInvalid": "Invalid phone number"
         }
+    },
+    "flipbook": {
+        "coverTitle": "Product Catalog",
+        "coverSubtitle": "Explore our highlights",
+        "backTitle": "Thank you",
+        "backSubtitle": "See more on our website",
+        "insideTitle": "Introduction",
+        "insideBody": "This is an all-in-one notebook that stores all the moments and beautiful scenes of some of the locations in our products, so that everyone has a place to check-in and enjoy the spaces that you have never known. Everything is contained in this book.",
+        "insideBackTitle": "Notes",
+        "insideBackBody": "Images are illustrative. For detailed and up-to-date information, please visit our website or contact us.",
+        "ctaHint": "Limited-time offer"
     }
 }
