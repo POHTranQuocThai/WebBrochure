@@ -17,7 +17,7 @@ const ProductInfoOne = () => {
 
                                 <img
                                     src={imgProduct1}
-                                    alt="Catology"
+                                    alt="Mặt trước của sản phẩm"
                                     className="product-image clouded"
                                 />
                             </div>
@@ -39,13 +39,13 @@ const ProductInfoOne = () => {
                                         {t('products.caesar.description')}
                                     </p>
 
-                                    <div className="price-section">
+                                    {/* <div className="price-section">
                                         <div>
 
                                         </div>
 
                                         <button className="btn-primary">{t('products.orderNow')}</button>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

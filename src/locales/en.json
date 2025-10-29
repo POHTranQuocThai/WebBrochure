@@ -55,13 +55,17 @@
     "products": {
         "orderNow": "Order Now",
         "caesar": {
-            "title": "Premium Caesar Salad",
-            "description": "Experience the perfect balance of crispy romaine lettuce, aged parmesan cheese, and our signature creamy Caesar dressing. Made with the freshest organic ingredients and topped with house-made croutons for that perfect crunch."
+            "title": "Front of the product",
+            "description": "The front of the product features a modern, clean layout with a green-led palette. The logo and name are prominently placed with crisp print quality — ideal for display or gifting."
+        },
+        "back": {
+            "title": "Back of the product",
+            "description": "The back presents key details: ingredients, usage instructions, and a handy QR code. Clear, legible layout designed for shelf presence and shipping."
         }
     },
     "contest": {
         "title": "Flash Sale",
-        "subtitle": "Hurry up and order now to get special offers!",
+        "subtitle": "First-time customers get 20% off.",
         "hours": "Hours",
         "minutes": "Minutes",
         "seconds": "Seconds",

@@ -55,13 +55,17 @@
     "products": {
         "orderNow": "Đặt ngay",
         "caesar": {
-            "title": "Salad Caesar hảo hạng",
-            "description": "Trải nghiệm sự cân bằng hoàn hảo giữa rau romaine giòn, phô mai parmesan lâu năm và sốt Caesar kem đặc trứ danh. Chế biến từ nguyên liệu hữu cơ tươi nhất và rắc bánh mì croutons nhà làm tạo độ giòn hoàn hảo."
+            "title": "Mặt trước của sản phẩm",
+            "description": "Mặt trước của sản phẩm với thiết kế hiện đại, bố cục gọn gàng và tông xanh chủ đạo. Logo và tên sản phẩm được đặt nổi bật, chất liệu in sắc nét — phù hợp trưng bày hoặc làm quà tặng."
+        },
+        "back": {
+            "title": "Mặt sau của sản phẩm",
+            "description": "Mặt sau hiển thị đầy đủ thông tin chi tiết: thành phần, hướng dẫn sử dụng và mã QR tiện lợi. Bố cục rõ ràng, dễ đọc, phù hợp bày kệ và vận chuyển."
         }
     },
     "contest": {
         "title": "Ưu đãi chớp nhoáng",
-        "subtitle": "Nhanh tay đặt hàng ngay để nhận nhiều ưu đãi!",
+        "subtitle": "Nếu bạn lần đầu tiên trải nghiệm sản phẩm sẽ được giảm 20% khi mua",
         "hours": "Giờ",
         "minutes": "Phút",
         "seconds": "Giây",

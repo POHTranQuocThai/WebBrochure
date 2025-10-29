@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Section } from "./Section";
-import imgProduct1 from "../assets/img/productImg/prod2.png";
+import imgProduct1 from "../assets/img/productImg/prod3.png";
 
 const ProductInfoTwo = () => {
     const { t } = useTranslation();
@@ -18,21 +18,14 @@ const ProductInfoTwo = () => {
                             <div className="cloud-card">
                                 <div className="cloud-content">
                                     <h3 className="product-title">
-                                        <span className="product-title-accent">{t('products.caesar.title')}</span>
+                                        <span className="product-title-accent">{t('products.back.title')}</span>
                                     </h3>
 
                                     <p className="product-description">
-                                        {t('products.caesar.description')}
+                                        {t('products.back.description')}
                                     </p>
 
-                                    <div className="price-section">
-                                        <div>
-                                            <span className="price">$13.99</span>
-                                            <span className="old-price">$16.99</span>
-                                        </div>
 
-                                        <button className="btn-primary">{t('products.orderNow')}</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +38,7 @@ const ProductInfoTwo = () => {
 
                                 <img
                                     src={imgProduct1}
-                                    alt="Catology"
+                                    alt="Mặt sau của sản phẩm"
                                     className="product-image clouded"
                                 />
                             </div>
