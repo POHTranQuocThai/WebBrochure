@@ -6,6 +6,8 @@ export default function ContactForm() {
     const ref = useRef();
     const [form, setForm] = useState({ name: '', email: '', phone: '' });
     const [errors, setErrors] = useState({});
+    const [sending, setSending] = useState(false);
+
     const [sent, setSent] = useState(false);
 
     useEffect(() => {
@@ -24,7 +26,7 @@ export default function ContactForm() {
         const e = {};
         if (!form.name.trim()) e.name = t('contact.errors.nameRequired');
         if (!/^[\w-.]+@[\w-]+(\.[\w-]+)+$/.test(form.email)) e.email = t('contact.errors.emailInvalid');
-        if (!/^\+?[0-9\s-]{8,}$/.test(form.phone)) e.phone = t('contact.errors.phoneInvalid');
+        if (!/^0\d{9}$/.test(form.phone)) e.phone = t('contact.errors.phoneInvalid');
         setErrors(e);
         return Object.keys(e).length === 0;
     }
@@ -32,9 +34,35 @@ export default function ContactForm() {
     function handleSubmit(ev) {
         ev.preventDefault();
         if (!validate()) return;
-        // Placeholder submit: integrate with backend later
-        setSent(true);
-        setTimeout(() => setSent(false), 3000);
+        setSending(true)
+        const formData = new FormData();
+        formData.append(
+            "_subject",
+            `📩 Contact from ${form.name} - ${new Date().toLocaleString()}`
+        ); formData.append("name", form.name);
+        formData.append("email", form.email);
+        formData.append("phone", form.phone);
+        formData.append("_captcha", "false");
+        formData.append("_autoresponse", "Thank you for contacting us.!");
+
+
+        fetch("https://formsubmit.co/tranthai.070104@gmail.com", {
+            method: "POST",
+            body: formData
+        })
+            .then(() => {
+                setSent(true);
+                setTimeout(() => {
+                    setSent(false)
+                    setForm({ name: '', email: '', phone: '' })
+                }, 3000);
+            })
+            .catch(err => {
+                alert("Gửi thất bại!");
+                console.error(err);
+            }).finally(() => {
+                setSending(false);
+            });
     }
 
     return (
@@ -76,8 +104,12 @@ export default function ContactForm() {
                             </label>
                         </div>
                         <div className="contact-actions">
-                            <button className="btn-primary" type="submit" disabled={sent}>
-                                {sent ? t('contact.sent') : t('contact.submit')}
+                            <button
+                                className="btn-primary"
+                                type="submit"
+                                disabled={sending}
+                            >
+                                {sending ? t('contact.sent') : t('contact.submit')}
                             </button>
                         </div>
                     </form>

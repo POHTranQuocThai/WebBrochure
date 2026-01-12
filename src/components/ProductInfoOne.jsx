@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Section } from "./Section";
-import imgProduct1 from "../assets/img/productImg/prod2.png";
+import imgProduct1 from "../assets/img/productImg/prod2.jpg";
 const ProductInfoOne = () => {
     const { t } = useTranslation();
     // traveler removed; keep only path id for potential future use

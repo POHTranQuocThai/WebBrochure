@@ -1,6 +1,6 @@
 import { Section } from "./Section";
 import { useTranslation } from "react-i18next";
-import imgHeroProduct from "../assets/img/productImg/prod2.png";
+import imgHeroProduct from "../assets/img/productImg/prod2.jpg";
 
 const ProductHook = ({ steps, currentProductHook }) => {
     const { t } = useTranslation();

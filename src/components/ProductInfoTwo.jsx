@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Section } from "./Section";
-import imgProduct1 from "../assets/img/productImg/prod3.png";
+import imgProduct1 from "../assets/img/productImg/prod3.jpg";
 
 const ProductInfoTwo = () => {
     const { t } = useTranslation();
