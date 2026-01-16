@@ -24,6 +24,7 @@ export default function ChatWidget() {
     const [step, setStep] = useState(1);
     const [hiddenOptions, setHiddenOptions] = useState([]);
     const [chatLang, setChatLang] = useState('vi');
+    const [keyboardOffset, setKeyboardOffset] = useState(0);
 
     const CHAT_CONFIG = useMemo(() => ({
         productName: 'Brochure',
@@ -36,6 +37,7 @@ export default function ChatWidget() {
     }), []);
 
     const bottomRef = useRef(null);
+    const containerRef = useRef(null);
 
     useEffect(() => {
         const saved = localStorage.getItem(MINIMIZED_KEY);
@@ -49,6 +51,23 @@ export default function ChatWidget() {
     useEffect(() => {
         bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages, open]);
+
+    // Keep chat above mobile keyboards using VisualViewport when available
+    useEffect(() => {
+        const vv = window.visualViewport;
+        if (!vv) return;
+        const update = () => {
+            const coveredBottom = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+            setKeyboardOffset(coveredBottom);
+        };
+        vv.addEventListener('resize', update);
+        vv.addEventListener('scroll', update);
+        update();
+        return () => {
+            vv.removeEventListener('resize', update);
+            vv.removeEventListener('scroll', update);
+        };
+    }, []);
 
     const getOptionsForStep = (s) => {
         if (chatLang === 'en') {
@@ -521,7 +540,13 @@ export default function ChatWidget() {
     };
 
     return (
-        <div className="fixed bottom-4 right-4 z-[60]">
+        <div
+            ref={containerRef}
+            className="fixed right-4 z-[1000]"
+            style={{
+                bottom: `calc(1rem + env(safe-area-inset-bottom) + ${keyboardOffset}px)`,
+            }}
+        >
             {/* Toggle button */}
             {!open && (
                 <button
@@ -536,7 +561,7 @@ export default function ChatWidget() {
 
             {/* Chat panel */}
             {open && (
-                <div className="w-[92vw] sm:w-80 md:w-96 h-[60vh] sm:h-[520px] bg-white rounded-xl shadow-2xl overflow-hidden border border-[var(--color-sand)]">
+                <div className="w-[85vw] sm:w-80 md:w-96 h-[70dvh] sm:h-[540px] bg-white rounded-xl shadow-2xl overflow-hidden border border-[var(--color-sand)]">
                     {/* Header */}
                     <div className="flex items-center justify-between px-4 py-3 bg-[var(--color-primary-red)] text-[var(--color-light-beige)]">
                         <div className="flex items-center gap-2">
@@ -549,9 +574,9 @@ export default function ChatWidget() {
                     </div>
 
                     {/* Body */}
-                    <div className="flex flex-col h-[calc(60vh-56px)] sm:h-[calc(520px-56px)]">
+                    <div className="flex flex-col h-[calc(70dvh-56px)] sm:h-[calc(540px-56px)]">
                         {/* Messages */}
-                        <div className="flex-1 overflow-y-auto px-3 py-3 bg-gray-50">
+                        <div className="flex-1 overflow-y-auto overscroll-y-contain px-3 py-3 bg-gray-50">
                             {messages.map(m => (
                                 <div key={m.id} className={`mb-2 flex ${m.from === 'user' ? 'justify-end' : 'justify-start'}`}>
                                     <div className={`${m.from === 'user' ? 'bg-[var(--color-primary-red)] text-[var(--color-light-beige)]' : 'bg-white text-gray-800'} max-w-[80%] rounded-2xl px-3 py-2 shadow-sm border ${m.from === 'user' ? 'border-[var(--color-primary-red)]' : 'border-gray-200'}`}>
@@ -627,18 +652,19 @@ export default function ChatWidget() {
                         </div>
 
                         {/* Composer */}
-                        <div className="px-3 py-2 bg-white border-t">
+                        <div className="px-3 py-2 bg-white border-t pb-[env(safe-area-inset-bottom)]">
                             <div className="flex items-center gap-2">
                                 <input
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     onKeyDown={(e) => { if (e.key === 'Enter') onSend(); }}
                                     placeholder={chatLang === 'en' ? 'Type your question…' : 'Nhập câu hỏi của bạn...'}
-                                    className="flex-1 rounded-lg border border-[var(--color-sand)] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-coral)]"
+                                    className="flex-1 rounded-lg border border-[var(--color-sand)] px-3 py-2 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-coral)]"
+                                    style={{ fontSize: '16px' }}
                                 />
                                 <button
                                     onClick={onSend}
-                                    className="px-3 py-2 rounded-lg text-sm bg-[var(--color-primary-red)] text-[var(--color-light-beige)] hover:opacity-90"
+                                    className="px-3 py-2 rounded-lg text-base sm:text-sm bg-[var(--color-primary-red)] text-[var(--color-light-beige)] hover:opacity-90"
                                 >
                                     {chatLang === 'en' ? 'Send' : 'Gửi'}
                                 </button>
