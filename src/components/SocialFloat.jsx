@@ -46,6 +46,10 @@ export default function SocialFloat() {
         io.observe(footer);
         return () => io.disconnect();
     }, []);
+    const zaloLink =
+        /Android|iPhone/i.test(navigator.userAgent)
+            ? 'https://zalo.me/0838276277'
+            : 'https://zalo.me/0838276277';
 
     return (
         <div className={`social-float ${hidden ? 'hidden' : ''}`} aria-hidden={hidden}>
@@ -57,9 +61,15 @@ export default function SocialFloat() {
                 <span className="social-icon" aria-hidden>{icons.tiktok}</span>
                 <span className="sr-only">TikTok</span>
             </a>
-            <a href="tel:0900000000" className="social-item phone" aria-label="Gọi điện">
+            <a
+                href={zaloLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-item phone"
+                aria-label="Chat Zalo"
+            >
                 <span className="social-icon" aria-hidden>{icons.phone}</span>
-                <span className="sr-only">Gọi</span>
+                <span className="sr-only">Zalo</span>
             </a>
         </div>
     );

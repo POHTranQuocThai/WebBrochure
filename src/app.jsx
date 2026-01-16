@@ -11,6 +11,7 @@ import Contest from "./components/Contest";
 import Footer from "./components/Footer";
 import ContactForm from './components/ContactForm';
 import SocialFloat from './components/SocialFloat';
+import ChatWidget from './components/ChatWidget';
 import HighLights from "./components/HighLights";
 
 
@@ -175,6 +176,7 @@ const FreshSaladWebsite = () => {
         {/* Footer */}
         <Footer />
         <SocialFloat />
+        <ChatWidget />
       </div>
     </>
   );

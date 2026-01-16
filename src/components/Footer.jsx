@@ -2,6 +2,10 @@ import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
     const { t } = useTranslation();
+    const zaloLink =
+        /Android|iPhone/i.test(navigator.userAgent)
+            ? 'https://zalo.me/0838276277'
+            : 'https://zalo.me/0838276277';
     return (
         <footer className="footer">
             <div className="container">
@@ -36,7 +40,7 @@ const Footer = () => {
                         <span className="sr-only">TikTok</span>
                     </a>
 
-                    <a href="tel:0900000000" className="social-item phone" aria-label="Gọi điện">
+                    <a href={zaloLink} target='_blank' className="social-item phone" aria-label="Gọi điện">
                         <span className="social-icon" aria-hidden>
                             <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
                                 <path fill="currentColor" d="M6.6 10.8a13.6 13.6 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1.1-.23 11.2 11.2 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17.6 17.6 0 0 1 3 6a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.2 11.2 0 0 0 .56 3.5 1 1 0 0 1-.23 1.1Z" />

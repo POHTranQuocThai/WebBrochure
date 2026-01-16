@@ -22,8 +22,6 @@ const Hero = () => {
 
             {/* Nội dung */}
             <div className="hero-content">
-                <h1>{t('hero.title')}</h1>
-                <p>{t('hero.subtitle')}</p>
             </div>
             <div className="bg-decoration bg-decoration-1">🌿</div>
             <div className="bg-decoration bg-decoration-2">✨</div>

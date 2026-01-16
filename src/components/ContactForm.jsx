@@ -46,7 +46,7 @@ export default function ContactForm() {
         formData.append("_autoresponse", "Thank you for contacting us.!");
 
 
-        fetch("https://formsubmit.co/tranthai.070104@gmail.com", {
+        fetch("https://formsubmit.co/giabaon142@gmail.com", {
             method: "POST",
             body: formData
         })
