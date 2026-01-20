@@ -6,7 +6,7 @@ import { Section } from "./Section";
 const formatVND = (value) =>
     new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', maximumFractionDigits: 0 }).format(value);
 
-const Contest = ({ baseHours = 48, oldPrice = 99000, newPrice = 49000 }) => {
+const Contest = ({ baseHours = 48, oldPrice = 79000, newPrice = 49000 }) => {
     const { t } = useTranslation();
     const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
     const endRef = useRef(null);
@@ -65,13 +65,25 @@ const Contest = ({ baseHours = 48, oldPrice = 99000, newPrice = 49000 }) => {
                             <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false">
                                 <defs>
                                     <linearGradient id="flashGrad" x1="0" y1="0" x2="1" y2="1">
-                                        <stop offset="0%" stopColor="var(--color-medium-red)" />
+                                        <stop offset="0%" stopColor="var(--color-coral)" />
                                         <stop offset="100%" stopColor="var(--color-primary-red)" />
                                     </linearGradient>
                                 </defs>
                                 <polygon points="32,2 38,16 54,16 41,26 46,40 32,32 18,40 23,26 10,16 26,16"
                                     fill="url(#flashGrad)" stroke="var(--color-light-beige)" strokeWidth="2" />
-                                <text x="32" y="35" textAnchor="middle" fontSize="12" fontWeight="700" fill="var(--color-sand)">SALE</text>
+                                <text
+                                    x="32"
+                                    y="36"
+                                    textAnchor="middle"
+                                    fontSize="16"
+                                    fontWeight="800"
+                                    fill="#ffffff"
+                                    stroke="rgba(0,0,0,0.3)"
+                                    strokeWidth="1"
+                                    style={{ letterSpacing: 1, paintOrder: 'stroke fill' }}
+                                >
+                                    SALE
+                                </text>
                             </svg>
                         </div>
                         <span
