@@ -46,6 +46,27 @@
             }
         }
     },
+    "productIntroduction": {
+        "title": "Khám phá Cẩm nang Ẩm thực Cần Thơ",
+        "subtitle": "Hướng dẫn toàn diện về 10 nhà hàng phải thử và quán uống nổi bật tại Cần Thơ",
+        "mainTitle": "Về Sản phẩm của Chúng tôi",
+        "mainDescription": "Đây là cuốn hướng dẫn du lịch ẩm thực chuyên biệt tại Cần Thơ, giúp bạn khám phá những điểm ăn uống hấp dẫn nhất. Sản phẩm được thiết kế với bố cục chuyên nghiệp, chứa đựng thông tin chi tiết, đánh giá sao, QR code tiện lợi, hình ảnh chất lượng cao và các gợi ý du lịch hữu ích.",
+        "highlight1": "10 nhà hàng phải thử với mô tả chi tiết",
+        "highlight2": "Danh sách quán uống nổi bật ở Cần Thơ",
+        "highlight3": "QR code, đánh giá sao và số điện thoại liên hệ",
+        "highlight4": "Thiết kế chuyên nghiệp, dễ dàng tham khảo",
+        "feature1Title": "10 Nhà hàng Chọn lọc",
+        "feature1Desc": "Danh sách 10 nhà hàng nổi tiếng nhất ở Cần Thơ, từ ẩm thực truyền thống đến hiện đại",
+        "feature2Title": "Đánh giá & Rating",
+        "feature2Desc": "Mỗi quán được đánh giá bằng sao và nhận xét từ thực khách, giúp bạn chọn lựa",
+        "feature3Title": "QR Code & Liên hệ",
+        "feature3Desc": "Mã QR kèm số điện thoại cho phép bạn dễ dàng tìm kiếm và liên hệ các quán ăn",
+        "feature4Title": "Hình ảnh & Mô tả",
+        "feature4Desc": "Hình ảnh chất lượng cao về các món ăn, không gian quán kèm mô tả chi tiết",
+        "imagePlaceholder": "Hình ảnh sản phẩm - Hướng dẫn ẩm thực Cần Thơ",
+        "ctaText": "Tìm hiểu thêm hoặc đặt hàng ngay",
+        "ctaPhone": "Hotline: 0921778895"
+    },
     "productsSection": {
         "title": "Bạn muốn mang lại cảm xúc gì cho du khách?"
     },
@@ -87,6 +108,23 @@
             "emailInvalid": "Email không hợp lệ",
             "phoneInvalid": "Số điện thoại không hợp lệ"
         }
+    },
+    "productPolicy": {
+        "title": "Chính sách sử dụng sản phẩm",
+        "subtitle": "Tìm hiểu chi tiết về sản phẩm, chính sách hỗ trợ và dịch vụ khách hàng của chúng tôi",
+        "introduction": {
+            "title": "Giới thiệu chi tiết sản phẩm",
+            "description": "Sản phẩm của chúng tôi được thiết kế với chất lượng cao, an toàn cho sức khỏe và có công dụng thực tế. Mỗi sản phẩm đều qua kiểm định kỹ lưỡng trước khi tới tay khách hàng."
+        },
+        "exchange": {
+            "title": "Chính sách hỗ trợ đổi trả",
+            "description": "Chúng tôi cam kết 100% hỗ trợ khách hàng. Nếu sản phẩm không như mong muốn, bạn có thể đổi trả hoặc hoàn lại tiền trong vòng 7 ngày kể từ ngày nhận hàng."
+        },
+        "support": {
+            "title": "Dịch vụ hỗ trợ khách hàng",
+            "description": "Đội ngũ chuyên viên của chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7. Liên hệ với chúng tôi qua hotline để giải đáp mọi thắc mắc."
+        },
+        "hotline": "Hotline"
     },
     "flipbook": {
         "coverTitle": "Danh mục sản phẩm",

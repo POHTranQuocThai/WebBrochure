@@ -46,6 +46,27 @@
             }
         }
     },
+    "productIntroduction": {
+        "title": "Explore Can Tho's Eatery Guide",
+        "subtitle": "Comprehensive guide to the 10 must-try restaurants and popular drink spots in Can Tho",
+        "mainTitle": "About Our Product",
+        "mainDescription": "This is a specialized culinary travel guide for Can Tho, helping you discover the most attractive dining spots. The product is designed with a professional layout, containing detailed information, star ratings, convenient QR codes, high-quality images, and useful travel tips.",
+        "highlight1": "10 must-try restaurants with detailed descriptions",
+        "highlight2": "List of popular drink spots in Can Tho",
+        "highlight3": "QR codes, star ratings, and contact numbers",
+        "highlight4": "Professional design for easy reference",
+        "feature1Title": "10 Selected Restaurants",
+        "feature1Desc": "The 10 most famous restaurants in Can Tho, from traditional to modern cuisine",
+        "feature2Title": "Ratings & Reviews",
+        "feature2Desc": "Each restaurant is rated with stars and reviewed by diners to help you make informed choices",
+        "feature3Title": "QR Codes & Contact",
+        "feature3Desc": "QR codes with phone numbers make it easy to search and contact restaurants",
+        "feature4Title": "Photos & Descriptions",
+        "feature4Desc": "High-quality images of dishes and restaurant spaces with detailed descriptions",
+        "imagePlaceholder": "Product Image - Can Tho Eatery Guide",
+        "ctaText": "Learn more or order now",
+        "ctaPhone": "Hotline: 0921778895"
+    },
     "productsSection": {
         "title": "What emotions do you want to experience with our guests?"
     },
@@ -87,6 +108,23 @@
             "emailInvalid": "Invalid email address",
             "phoneInvalid": "Invalid phone number"
         }
+    },
+    "productPolicy": {
+        "title": "Product Usage Policy",
+        "subtitle": "Learn more about our products, support policies and customer service",
+        "introduction": {
+            "title": "Product Introduction",
+            "description": "Our products are designed with high quality, safety for health and practical applications. Each product undergoes thorough inspection before reaching customers."
+        },
+        "exchange": {
+            "title": "Exchange and Return Policy",
+            "description": "We are committed to 100% customer support. If the product is not as expected, you can exchange it or receive a full refund within 7 days from the date of receipt."
+        },
+        "support": {
+            "title": "Customer Support Service",
+            "description": "Our team of specialists is ready to assist you 24/7. Contact us via hotline to answer any questions."
+        },
+        "hotline": "Hotline"
     },
     "flipbook": {
         "coverTitle": "Product Catalog",

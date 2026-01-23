@@ -2160,3 +2160,377 @@ section#highlights {
     transform: translateY(calc(-100% - var(--gap)));
   }
 } */
+
+/* Product Policy Section */
+.policy-section {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(245, 224, 219, 0.4) 100%);
+  padding: 80px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.policy-section .section-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.policy-section .section-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-primary-red);
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.policy-section .section-subtitle {
+  font-size: 18px;
+  color: var(--text-gray);
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.policies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.policy-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(107, 27, 35, 0.1);
+  text-align: center;
+}
+
+.policy-card:hover {
+  box-shadow: 0 12px 40px rgba(107, 27, 35, 0.15);
+  transform: translateY(-8px);
+  border-color: var(--color-primary-red);
+}
+
+.policy-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.policy-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-primary-red);
+  margin-bottom: 12px;
+}
+
+.policy-description {
+  font-size: 16px;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.policy-phone {
+  font-size: 16px;
+  color: var(--color-medium-red);
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(107, 27, 35, 0.1);
+}
+
+.policy-phone strong {
+  color: var(--color-primary-red);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .policy-section {
+    padding: 60px 16px;
+  }
+
+  .policy-section .section-title {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  .policy-section .section-subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .policies-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .policy-card {
+    padding: 24px;
+  }
+
+  .policy-icon {
+    font-size: 40px;
+  }
+
+  .policy-title {
+    font-size: 18px;
+  }
+
+  .policy-description {
+    font-size: 14px;
+  }
+}
+
+/* Product Introduction Section */
+.introduction-section {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 224, 219, 0.3) 100%);
+  padding: 80px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.introduction-section .section-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-primary-red);
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.introduction-section .section-subtitle {
+  font-size: 18px;
+  color: var(--text-gray);
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.introduction-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.introduction-content {
+  max-width: 800px;
+  margin: 0 auto 80px;
+  text-align: center;
+}
+
+.introduction-text h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-primary-red);
+  margin-bottom: 16px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.introduction-text p {
+  font-size: 16px;
+  color: var(--text-gray);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.product-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.product-highlights li {
+  font-size: 16px;
+  color: var(--color-primary-red);
+  margin: 12px 0;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.product-highlights li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-medium-red);
+  font-weight: bold;
+}
+
+.introduction-image {
+  position: relative;
+}
+
+.image-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, rgba(160, 50, 59, 0.1), rgba(107, 27, 35, 0.1));
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--color-primary-red);
+  gap: 12px;
+}
+
+.image-icon {
+  font-size: 64px;
+}
+
+.image-placeholder p {
+  font-size: 14px;
+  color: var(--color-primary-red);
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.feature-item {
+  background: white;
+  padding: 32px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(107, 27, 35, 0.12);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-item:hover {
+  box-shadow: 0 8px 32px rgba(107, 27, 35, 0.2);
+  transform: translateY(-6px);
+  border-color: var(--color-medium-red);
+}
+
+.feature-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-item h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary-red);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.feature-item p {
+  font-size: 13px;
+  color: var(--text-gray);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.introduction-cta {
+  background: linear-gradient(135deg, var(--color-primary-red), var(--color-medium-red));
+  color: white;
+  padding: 32px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.introduction-cta p {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: white;
+}
+
+.introduction-cta strong {
+  font-size: 18px;
+  display: block;
+  margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .introduction-section {
+    padding: 60px 16px;
+  }
+
+  .introduction-section .section-title {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  .introduction-section .section-subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .introduction-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .introduction-text h3 {
+    font-size: 24px;
+  }
+
+  .introduction-text p {
+    font-size: 15px;
+  }
+
+  .product-highlights li {
+    font-size: 15px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .feature-item {
+    padding: 20px;
+  }
+
+  .feature-icon {
+    font-size: 32px;
+  }
+
+  .feature-item h4 {
+    font-size: 16px;
+  }
+
+  .introduction-cta {
+    padding: 24px;
+  }
+
+  .introduction-cta p {
+    font-size: 14px;
+  }
+
+  .introduction-cta strong {
+    font-size: 16px;
+  }
+}

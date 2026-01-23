@@ -5,6 +5,7 @@ import ProductsSection from "./components/ProductsSection";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import ProductHook from "./components/ProductHook";
+import ProductIntroduction from "./components/ProductIntroduction";
 import ProductInfoOne from "./components/ProductInfoOne";
 import ProductInfoTwo from "./components/ProductInfoTwo";
 import Contest from "./components/Contest";
@@ -13,6 +14,7 @@ import ContactForm from './components/ContactForm';
 import SocialFloat from './components/SocialFloat';
 import ChatWidget from './components/ChatWidget';
 import HighLights from "./components/HighLights";
+import ProductPolicy from "./components/ProductPolicy";
 
 
 import pr1 from "./assets/img/pr1.jpg"
@@ -39,8 +41,7 @@ const FreshSaladWebsite = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'products', 'order', 'highlights', 'contact'];
-      const scrollPosition = window.scrollY + 200;
+      const sections = ['home', 'about', 'policy', 'products', 'order', 'highlights', 'contact'];
 
       setIsHeaderFixed(window.scrollY > 100);
 
@@ -156,11 +157,17 @@ const FreshSaladWebsite = () => {
         {/* ProductHooks Section */}
         <ProductHook steps={steps} currentProductHook={currentProductHook} />
 
+        {/* Product Introduction Section */}
+        <ProductIntroduction />
+
         {/* Product Information Section 1 */}
         <ProductInfoOne />
 
         {/* Product Information Section 2 */}
         <ProductInfoTwo />
+
+        {/* Product Policy Section */}
+        <ProductPolicy />
 
         {/* New Eatery Guide sections */}
         {/* Contest Section */}
