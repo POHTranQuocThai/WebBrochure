@@ -60,7 +60,7 @@
         "feature2Title": "Ratings & Reviews",
         "feature2Desc": "Each restaurant is rated with stars and reviewed by diners to help you make informed choices",
         "feature3Title": "QR Codes & Contact",
-        "feature3Desc": "QR codes with phone numbers make it easy to search and contact restaurants",
+        "feature3Desc": "QR codes with integrated Google Maps and phone numbers make it easy to find and contact restaurants",
         "feature4Title": "Photos & Descriptions",
         "feature4Desc": "High-quality images of dishes and restaurant spaces with detailed descriptions",
         "imagePlaceholder": "Product Image - Can Tho Eatery Guide",
@@ -86,7 +86,7 @@
     },
     "contest": {
         "title": "Flash Sale",
-        "subtitle": "First-time customers get 10% off.",
+        "subtitle": "First-time customers get 10% sale off.",
         "hours": "Hours",
         "minutes": "Minutes",
         "seconds": "Seconds",

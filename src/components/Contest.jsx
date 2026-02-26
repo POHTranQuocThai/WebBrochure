@@ -6,7 +6,7 @@ import { Section } from "./Section";
 const formatVND = (value) =>
     new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', maximumFractionDigits: 0 }).format(value);
 
-const Contest = ({ baseHours = 48, oldPrice = 79000, newPrice = 49000 }) => {
+const Contest = ({ baseHours = 48, oldPrice = 49000, newPrice = 23999 }) => {
     const { t } = useTranslation();
     const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
     const endRef = useRef(null);
