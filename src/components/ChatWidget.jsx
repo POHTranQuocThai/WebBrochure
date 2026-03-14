@@ -30,7 +30,7 @@ export default function ChatWidget() {
         productName: 'Brochure',
         problemMain: 'vấn đề không biết ăn gì, đi đâu khi lần đầu đặt chân tới Cần Thơ',
         timeToResult: 'trong thời gian ngắn và tiết kiệm được nhiều thời gian không phải tìm hiểu quá nhiều qua các trang thông tin khác!',
-        price: '49.000 đ',
+        price: '23.999 đ',
         phone: '0838276277',
         zalo: 'https://zalo.me/0838276277',
         facebook: 'https://www.facebook.com/profile.php?id=61582625240262&locale=vi_VN',

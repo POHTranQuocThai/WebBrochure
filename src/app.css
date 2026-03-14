@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
@@ -10,8 +12,8 @@
   /* nền be nhạt hơi ấm, hợp với đỏ rượu */
   --color-medium-red: #a0323b;
   /* đỏ rượu vừa phải, dùng cho hover hoặc secondary */
-  --color-primary-red: #6b1b23;
-  /* đỏ rượu đậm, màu chính */
+  --color-primary-red: #7f1d2d;
+  /* đỏ rượu đậm, màu chính (được làm tươi hơn chút để nền đẹp hơn) */
   --color-dark-green: #3a1f1f;
   /* chữ hoặc viền, đổi chút xanh sang nâu đậm cho hài hòa */
 
@@ -24,6 +26,8 @@
 
   /* Font */
   --font-family: 'Roboto Mono', monospace, sans-serif;
+  --font-display: 'Playfair Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-voucher: 'Bebas Neue', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --text-gray: #6B7280;
   /* Tailwind Gray 500 */
 }
@@ -178,56 +182,404 @@ span.lang-code {
   z-index: 3;
 }
 
-/* Toàn bộ hero section */
+/* Hero Section: voucher CTA */
 .hero-section {
   position: relative;
   width: 100%;
-  height: 100vh;
-  /* fallback */
-  height: 100svh;
-  /* better on mobile browsers */
-  overflow: hidden;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #f8e7e0 0, rgba(248, 231, 224, 0.7) 18%, transparent 42%),
+    linear-gradient(135deg, var(--color-primary-red), #3a1f1f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 170px;
+  padding-bottom: 80px;
+  color: var(--color-light-beige);
 }
 
-/* Video nền */
-.bg-video {
-  position: absolute;
+@media (max-width: 768px) {
+  .hero-section {
+    /* Đẩy nội dung xuống xa navbar hơn trên mobile */
+    padding-top: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    /* Điện thoại rất nhỏ: đẩy xuống thêm một chút */
+    padding-top: 260px;
+  }
+}
+
+.hero-inner {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  image-rendering: crisp-edges;
-  transform: none;
-  /* nếu có thể bỏ */
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  padding-inline: 16px;
 }
 
-/* Overlay làm mờ hoặc phủ màu */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(193, 191, 191, 0.35);
-  z-index: -1;
+@media (min-width: 1024px) {
+  .hero-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 56px;
+  }
 }
 
-/* Nội dung phía trên video */
-.hero-content {
+.hero-left,
+.hero-right {
+  flex: 1;
+}
+
+@media (min-width: 1024px) {
+  .hero-left {
+    flex: 0 0 52%;
+  }
+
+  .hero-right {
+    flex: 0 0 44%;
+  }
+}
+
+.hero-image-wrapper {
   position: relative;
-  z-index: 1;
-  color: var(--color-dark-green);
-  text-align: center;
-  top: 45%;
-  transform: translateY(-50%);
+  background: transparent;
+  border-radius: 0;
+  padding: 0 0 60px;
+  box-shadow: none;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+.hero-product-image {
+  width: 100%;
+  display: block;
+  border-radius: 0;
+  object-fit: cover;
 }
 
-.hero-content p {
-  font-size: 1.2rem;
+.hero-image-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 24px;
+  width: 78%;
+  height: 22px;
+  border-radius: 999px;
+  background: radial-gradient(circle at center,
+      rgba(0, 0, 0, 0.35) 0,
+      rgba(0, 0, 0, 0.12) 45%,
+      rgba(0, 0, 0, 0) 70%);
+  filter: blur(2px);
   opacity: 0.9;
-  color: var(--color-sand);
+}
+
+.hero-image-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 16px;
+  width: 82%;
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg,
+      rgba(55, 29, 20, 0.95),
+      rgba(120, 53, 37, 0.98),
+      rgba(55, 29, 20, 0.95));
+  box-shadow:
+    0 4px 10px rgba(15, 23, 42, 0.55),
+    0 0 0 1px rgba(248, 250, 252, 0.06);
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+}
+
+.hero-heading {
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  line-height: 1.5;
+  font-family: var(--font-family);
+  font-weight: 600;
+  color: var(--color-light-beige);
+  margin-top: 30px;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 12px rgba(15, 23, 42, 0.6);
+}
+
+.hero-subheading {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 500;
+  color: rgba(249, 250, 251, 0.9);
+  margin-top: 4px;
+}
+
+.hero-voucher-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(250, 204, 21, 0.18), rgba(127, 29, 45, 0.0));
+  box-shadow:
+    0 0 24px rgba(251, 191, 36, 0.55),
+    0 0 0 1px rgba(248, 250, 252, 0.05);
+  margin-top: 10px;
+  margin-inline: 0.45em;
+  border: none;
+}
+
+.hero-voucher-label {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: var(--font-voucher);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #fed7aa, #fb7185);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-voucher-amount {
+  font-size: 3.1rem;
+  font-weight: 800;
+  font-family: var(--font-family);
+  background: linear-gradient(135deg, #facc15, #ea580c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 18px rgba(250, 204, 21, 0.7);
+}
+
+@media (min-width: 768px) {
+  .hero-voucher-highlight {
+    align-self: flex-start;
+  }
+}
+
+.voucher-steps {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 20px;
+  padding: 20px 20px 16px;
+  backdrop-filter: blur(8px);
+}
+
+@media (min-width: 768px) {
+  .hero-right {
+    text-align: left;
+  }
+
+  .voucher-steps,
+  .voucher-form {
+    max-width: 520px;
+  }
+}
+
+.voucher-steps-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.voucher-steps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.voucher-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.voucher-step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--color-light-beige);
+  color: var(--color-primary-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.voucher-step-text {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.voucher-step-note {
+  display: block;
+  font-size: 0.78rem;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+.voucher-note {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin-top: 6px;
+}
+
+@media (max-width: 480px) {
+  .voucher-steps {
+    padding: 12px 10px 10px;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .voucher-step {
+    align-items: center;
+    gap: 6px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .voucher-step-number {
+    width: 30px;
+    height: 30px;
+    font-size: 0.78rem;
+  }
+
+  .voucher-steps-title {
+    font-size: 0.72rem;
+  }
+
+  .voucher-step-text {
+    font-size: 0.62rem;
+    line-height: 1.35;
+  }
+
+  .voucher-step-note {
+    font-size: 0.55rem;
+  }
+
+  .voucher-note {
+    font-size: 0.58rem;
+  }
+}
+
+.voucher-form {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.voucher-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (min-width: 640px) {
+  .voucher-input-group {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.voucher-input {
+  flex: 1;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-light-beige);
+  outline: none;
+}
+
+.voucher-input::placeholder {
+  color: rgba(249, 250, 251, 0.7);
+}
+
+.voucher-check-button {
+  white-space: nowrap;
+  border-radius: 999px;
+}
+
+.voucher-result {
+  border-radius: 16px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+}
+
+.voucher-result-success {
+  background: rgba(22, 163, 74, 0.16);
+  border: 1px solid rgba(22, 163, 74, 0.5);
+}
+
+.voucher-result-error {
+  background: rgba(248, 113, 113, 0.16);
+  border: 1px solid rgba(248, 113, 113, 0.6);
+}
+
+.voucher-code-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.voucher-code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 6px 10px 6px 16px;
+  border-radius: 999px;
+  background: var(--color-light-beige);
+  color: var(--color-primary-red);
+}
+
+.voucher-code-text {
+  white-space: nowrap;
+}
+
+.voucher-copy-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(127, 29, 45, 0.08);
+  color: var(--color-primary-red);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.voucher-copy-icon:hover {
+  background: rgba(127, 29, 45, 0.16);
+  transform: translateY(-1px);
+}
+
+.voucher-congrats {
+  margin-top: 8px;
+}
+
+.voucher-error-message {
+  margin: 0;
 }
 
 @media (min-width: 768px) {
@@ -2008,6 +2360,10 @@ section#highlights {
 
 /* Fix mobile overlap between Product Two and One for 394px–492px widths */
 @media (min-width: 360px) and (max-width: 492px) {
+
+  .hero-product-image {
+    margin-top: 35px;
+  }
 
   /* Allow section to breathe more in this band */
   .product-section,

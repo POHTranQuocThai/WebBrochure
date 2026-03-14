@@ -13,6 +13,27 @@
         "getStarted": "Bắt đầu",
         "videoFallback": "Trình duyệt của bạn không hỗ trợ video nền."
     },
+    "voucherHero": {
+        "headingPrefix": "Liên hệ đặt mua sản phẩm để nhận ngay",
+        "headingSuffix": "khi trải nghiệm sản phẩm",
+        "stepsTitle": "Cách nhận voucher",
+        "steps": {
+            "one": "Liên hệ đặt mua sản phẩm.",
+            "two": "Sau khi nhận được sản phẩm, quay trở lại website.",
+            "threeMain": "Nhập SĐT để kiểm tra và nhận mã voucher",
+            "threeNote": "(nếu có lỗi hãy thử lại sau 24h)."
+        },
+        "note": "Lưu ý: Giá trị voucher chỉ sử dụng 1 lần khi đến quán.",
+        "inputPlaceholder": "Nhập số điện thoại của bạn",
+        "checkButton": "Kiểm tra",
+        "resultLabel": "Mã voucher của bạn:",
+        "copyAria": "Sao chép mã voucher",
+        "errors": {
+            "invalidPhone": "Vui lòng nhập số điện thoại hợp lệ.",
+            "notApplied": "SĐT của quý khách chưa được áp dụng. Vui lòng đăng ký mua sản phẩm để được nhận voucher."
+        },
+        "successMessage": "Chúc quý khách trải nghiệm sản phẩm vui vẻ!"
+    },
     "steps": {
         "step1": "Chọn mẫu",
         "step2": "Tùy chiện brochure",

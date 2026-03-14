@@ -13,6 +13,27 @@
         "getStarted": "Get Started",
         "videoFallback": "Your browser does not support background video."
     },
+    "voucherHero": {
+        "headingPrefix": "Contact us to order and receive",
+        "headingSuffix": "when you experience the product",
+        "stepsTitle": "How to receive your voucher",
+        "steps": {
+            "one": "Contact us to place your order.",
+            "two": "After receiving the product, return to this website.",
+            "threeMain": "Enter your phone number to receive your voucher code",
+            "threeNote": "(if there is an error, please try again after 24 hours)."
+        },
+        "note": "Note: Each voucher can only be used once at the store.",
+        "inputPlaceholder": "Enter your phone number",
+        "checkButton": "Check voucher",
+        "resultLabel": "Your voucher code:",
+        "copyAria": "Copy voucher code",
+        "errors": {
+            "invalidPhone": "Please enter a valid phone number.",
+            "notApplied": "Your phone number is not eligible yet. Please register to purchase the product to receive a voucher."
+        },
+        "successMessage": "We wish you a great experience with our product!"
+    },
     "steps": {
         "step1": "Choose a template",
         "step2": "Customize your brochure",
