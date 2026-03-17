@@ -15,6 +15,7 @@ import SocialFloat from './components/SocialFloat';
 import ChatWidget from './components/ChatWidget';
 import HighLights from "./components/HighLights";
 import ProductPolicy from "./components/ProductPolicy";
+import AdminPage from "./components/AdminPage";
 
 
 import pr1 from "./assets/img/pr1.jpg"
@@ -27,6 +28,18 @@ import pr6 from "./assets/img/pr6.jpg";
 
 const FreshSaladWebsite = () => {
   const { t } = useTranslation();
+
+  const [route, setRoute] = useState(() => window.location.hash || "#/");
+
+  useEffect(() => {
+    const onHashChange = () => setRoute(window.location.hash || "#/");
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  if (route.startsWith("#/admin")) {
+    return <AdminPage />;
+  }
 
   const [timeLeft, setTimeLeft] = useState({
     days: 15,

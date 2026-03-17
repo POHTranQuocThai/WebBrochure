@@ -30,7 +30,8 @@
         "copyAria": "Copy voucher code",
         "errors": {
             "invalidPhone": "Please enter a valid phone number.",
-            "notApplied": "Your phone number is not eligible yet. Please register to purchase the product to receive a voucher."
+            "notApplied": "Your phone number is not eligible yet. Please register to purchase the product to receive a voucher.",
+            "serverError": "Unable to check your voucher right now. Please try again later."
         },
         "successMessage": "We wish you a great experience with our product!"
     },

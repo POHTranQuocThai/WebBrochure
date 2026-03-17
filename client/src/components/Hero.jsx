@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Section } from "./Section";
 import heroProduct from "../assets/img/productImg/prod4hero.png"
-import vouchers from "../data/vouchers.json";
+import { getVoucherByPhone } from "../api/voucher";
 
 const normalizePhone = (value) => value.replace(/\D/g, "");
 
@@ -12,7 +12,7 @@ const Hero = () => {
     const [result, setResult] = useState(null);
     const [isCopying, setIsCopying] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const normalized = normalizePhone(phone.trim());
 
@@ -28,21 +28,28 @@ const Hero = () => {
             return;
         }
 
-        const record = vouchers.find((v) => v.phone === normalized);
+        try {
+            const voucher = await getVoucherByPhone(normalized);
 
-        if (!record) {
+            if (voucher) {
+                setResult({
+                    status: "success",
+                    code: voucher,
+                    message: t("voucherHero.successMessage"),
+                });
+                return;
+            }
+
             setResult({
                 status: "error",
                 message: t("voucherHero.errors.notApplied"),
             });
-            return;
+        } catch (error) {
+            setResult({
+                status: "error",
+                message: t("voucherHero.errors.serverError"),
+            });
         }
-
-        setResult({
-            status: "success",
-            code: record.code,
-            message: t("voucherHero.successMessage"),
-        });
     };
 
     const handleCopy = async () => {

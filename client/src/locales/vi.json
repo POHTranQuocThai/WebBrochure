@@ -24,13 +24,14 @@
             "threeNote": "(nếu có lỗi hãy thử lại sau 24h)."
         },
         "note": "Lưu ý: Giá trị voucher chỉ sử dụng 1 lần khi đến quán.",
-        "inputPlaceholder": "Nhập số điện thoại của bạn",
+        "inputPlaceholder": "Nhập SĐT của bạn",
         "checkButton": "Kiểm tra",
         "resultLabel": "Mã voucher của bạn:",
         "copyAria": "Sao chép mã voucher",
         "errors": {
             "invalidPhone": "Vui lòng nhập số điện thoại hợp lệ.",
-            "notApplied": "SĐT của quý khách chưa được áp dụng. Vui lòng đăng ký mua sản phẩm để được nhận voucher."
+            "notApplied": "SĐT của quý khách chưa được áp dụng. Vui lòng đăng ký mua sản phẩm để được nhận voucher.",
+            "serverError": "Không thể kiểm tra voucher lúc này. Vui lòng thử lại sau."
         },
         "successMessage": "Chúc quý khách trải nghiệm sản phẩm vui vẻ!"
     },
