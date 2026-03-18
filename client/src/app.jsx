@@ -15,7 +15,7 @@ import SocialFloat from './components/SocialFloat';
 import ChatWidget from './components/ChatWidget';
 import HighLights from "./components/HighLights";
 import ProductPolicy from "./components/ProductPolicy";
-import AdminPage from "./components/AdminPage";
+import DashboardPage from "./components/DashboardPage";
 
 
 import pr1 from "./assets/img/pr1.jpg"
@@ -37,8 +37,8 @@ const FreshSaladWebsite = () => {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
-  if (route.startsWith("#/admin")) {
-    return <AdminPage />;
+  if (route.startsWith("#/dashboard") || route.startsWith("#/admin") || route.startsWith("#/staff")) {
+    return <DashboardPage />;
   }
 
   const [timeLeft, setTimeLeft] = useState({

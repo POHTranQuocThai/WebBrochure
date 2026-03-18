@@ -9,27 +9,6 @@ function normalizePhone(value) {
     return String(value || '').replace(/\D/g, '');
 }
 
-function phoneDigitsEqExpr(normalizedDigits) {
-    return {
-        $expr: {
-            $eq: [
-                {
-                    $regexReplace: {
-                        input: '$phone',
-                        regex: '[^0-9]',
-                        replacement: '',
-                    },
-                },
-                normalizedDigits,
-            ],
-        },
-    };
-}
-
-function escapeRegex(value) {
-    return String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
 router.get('/', async (req, res) => {
     try {
         const customers = await Customer.find({}).sort({ createdAt: -1 });
@@ -55,17 +34,7 @@ router.post('/', async (req, res) => {
             return res.status(400).json({ error: 'name and phone are required' });
         }
 
-        const existingByPhone = await Customer.findOne(phoneDigitsEqExpr(normalizedPhone)).select('_id');
-        if (existingByPhone) {
-            return res.status(409).json({ error: 'phone already exists' });
-        }
-
-        const existingByName = await Customer.findOne({
-            name: new RegExp(`^${escapeRegex(trimmedName)}$`, 'i'),
-        }).select('_id');
-        if (existingByName) {
-            return res.status(409).json({ error: 'name already exists' });
-        }
+        // Note: allow duplicate names; rely on Mongo unique indexes to prevent duplicate phone/voucher.
 
         // Behavior:
         // - If `voucher` ends with digits => treat as full voucher code
@@ -115,20 +84,7 @@ router.put('/:id', async (req, res) => {
             return res.status(400).json({ error: 'name, phone, voucher are required' });
         }
 
-        const existingByPhone = await Customer.findOne({
-            $and: [phoneDigitsEqExpr(normalizedPhone), { _id: { $ne: id } }],
-        }).select('_id');
-        if (existingByPhone) {
-            return res.status(409).json({ error: 'phone already exists' });
-        }
-
-        const existingByName = await Customer.findOne({
-            _id: { $ne: id },
-            name: new RegExp(`^${escapeRegex(trimmedName)}$`, 'i'),
-        }).select('_id');
-        if (existingByName) {
-            return res.status(409).json({ error: 'name already exists' });
-        }
+        // Note: allow duplicate names/phones checks here; unique index will still prevent duplicate phone/voucher.
 
         const updated = await Customer.findByIdAndUpdate(
             id,

@@ -25,10 +25,28 @@ if (!existing) {
     console.log(`Account already exists: ${sampleUsername}`);
 }
 
+// Upsert sample staff account
+const staffUsername = 'staff';
+const staffPassword = '12345';
+
+const existingStaff = await Account.findOne({ username: staffUsername });
+if (!existingStaff) {
+    await Account.createWithPassword({
+        username: staffUsername,
+        password: staffPassword,
+        role: 'staff'
+    });
+    // eslint-disable-next-line no-console
+    console.log(`Seeded staff account: ${staffUsername} / ${staffPassword}`);
+} else {
+    // eslint-disable-next-line no-console
+    console.log(`Staff account already exists: ${staffUsername}`);
+}
+
 // Upsert sample customer
 await Customer.findOneAndUpdate(
     { phone: '0901234567' },
-    { $set: { name: 'Nguyen Van A', phone: '0901234567', voucher: 'SALE10' } },
+    { $set: { name: 'Nguyen Van A', phone: '0901234567', voucher: 'SALE10', voucherUsed: false } },
     { upsert: true, new: true }
 );
 

@@ -31,7 +31,7 @@ function normalizePhone(value) {
   return String(value || "").replace(/\D/g, "");
 }
 
-export default function AdminPage() {
+export default function AdminPage({ embedded = false, onLogout } = {}) {
   const screens = useBreakpoint();
   const [loggedIn, setLoggedIn] = useState(isAdminLoggedIn());
   const [loading, setLoading] = useState(false);
@@ -54,6 +54,7 @@ export default function AdminPage() {
       if (err?.status === 401) {
         adminLogout();
         setLoggedIn(false);
+        onLogout?.();
       }
       message.error("Không tải được danh sách khách hàng");
     } finally {
@@ -115,6 +116,15 @@ export default function AdminPage() {
         key: "voucher",
       },
       {
+        title: "Trạng thái",
+        key: "voucherUsed",
+        render: (_, record) => (
+          <Text type={record?.voucherUsed ? undefined : "secondary"}>
+            {record?.voucherUsed ? "Đã sử dụng" : "Chưa sử dụng"}
+          </Text>
+        ),
+      },
+      {
         title: "Hành động",
         key: "actions",
         render: (_, record) => (
@@ -165,7 +175,14 @@ export default function AdminPage() {
       message.success("Đăng nhập thành công");
       setLoggedIn(true);
     } catch (err) {
-      message.error("Sai tài khoản hoặc mật khẩu");
+      const msg = String(err?.message || "");
+      if (msg.toUpperCase() === "FORBIDDEN") {
+        message.error("Tài khoản không có quyền admin");
+      } else if (msg.toLowerCase().includes("invalid credentials")) {
+        message.error("Sai tài khoản hoặc mật khẩu");
+      } else {
+        message.error("Sai tài khoản hoặc mật khẩu");
+      }
     } finally {
       setLoading(false);
     }
@@ -204,6 +221,7 @@ export default function AdminPage() {
       } else if (err?.status === 401) {
         adminLogout();
         setLoggedIn(false);
+        onLogout?.();
         message.error("Phiên đăng nhập hết hạn");
       } else {
         message.error("Lưu thất bại");
@@ -214,6 +232,7 @@ export default function AdminPage() {
   }
 
   if (!loggedIn) {
+    if (embedded) return null;
     return (
       <div style={{ maxWidth: 420, margin: "24px auto", padding: 16 }}>
         <Title level={3} style={{ marginBottom: 8 }}>
@@ -245,7 +264,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div style={{ maxWidth: 1000, margin: "24px auto", padding: 16 }}>
+    <div style={{ maxWidth: 1000, margin: embedded ? 0 : "24px auto", padding: embedded ? 0 : 16 }}>
       <div
         style={{
           display: "flex",
@@ -267,15 +286,18 @@ export default function AdminPage() {
             width: screens.sm ? "auto" : "100%",
           }}
         >
-          <Button
-            block={!screens.sm}
-            onClick={() => {
-              adminLogout();
-              setLoggedIn(false);
-            }}
-          >
-            Logout
-          </Button>
+          {!embedded && (
+            <Button
+              block={!screens.sm}
+              onClick={() => {
+                adminLogout();
+                setLoggedIn(false);
+                onLogout?.();
+              }}
+            >
+              Logout
+            </Button>
+          )}
           <Button
             type="primary"
             block={!screens.sm}
@@ -316,6 +338,7 @@ export default function AdminPage() {
               if (err?.status === 401) {
                 adminLogout();
                 setLoggedIn(false);
+                onLogout?.();
                 message.error("Phiên đăng nhập hết hạn");
               } else {
                 message.error("Lưu format thất bại");

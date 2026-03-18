@@ -52,6 +52,11 @@ export async function adminLogin({ username, password }) {
         throw new Error("LOGIN_FAILED");
     }
 
+    // Backward compatible: older backend may not return `role`.
+    if (res?.role && res?.role !== "admin") {
+        throw new Error("FORBIDDEN");
+    }
+
     setToken(res.token);
     return res;
 }
@@ -96,5 +101,29 @@ export async function updateVoucherFormat(format) {
     return await request("/api/admin/voucher-format", {
         method: "PUT",
         body: { format },
+    });
+}
+
+export async function listAccounts() {
+    return await request("/api/admin/accounts");
+}
+
+export async function createAccount(payload) {
+    return await request("/api/admin/accounts", {
+        method: "POST",
+        body: payload,
+    });
+}
+
+export async function updateAccount(id, payload) {
+    return await request(`/api/admin/accounts/${encodeURIComponent(id)}`, {
+        method: "PUT",
+        body: payload,
+    });
+}
+
+export async function deleteAccount(id) {
+    return await request(`/api/admin/accounts/${encodeURIComponent(id)}`, {
+        method: "DELETE",
     });
 }

@@ -23,6 +23,10 @@ const CustomerSchema = new mongoose.Schema(
             required: true,
             unique: true,
             trim: true
+        },
+        voucherUsed: {
+            type: Boolean,
+            default: false
         }
     },
     {
