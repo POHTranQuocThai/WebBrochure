@@ -11,9 +11,11 @@ const Hero = () => {
     const [phone, setPhone] = useState("");
     const [result, setResult] = useState(null);
     const [isCopying, setIsCopying] = useState(false);
+    const [checking, setChecking] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (checking) return;
         const normalized = normalizePhone(phone.trim());
 
         if (!normalized) {
@@ -28,6 +30,7 @@ const Hero = () => {
             return;
         }
 
+        setChecking(true);
         try {
             const voucher = await getVoucherByPhone(normalized);
 
@@ -49,6 +52,8 @@ const Hero = () => {
                 status: "error",
                 message: t("voucherHero.errors.serverError"),
             });
+        } finally {
+            setChecking(false);
         }
     };
 
@@ -119,8 +124,15 @@ const Hero = () => {
                                 value={phone}
                                 onChange={(e) => setPhone(e.target.value)}
                             />
-                            <button type="submit" className="btn btn-primary voucher-check-button">
-                                {t("voucherHero.checkButton")}
+                            <button
+                                type="submit"
+                                className="btn btn-primary voucher-check-button"
+                                disabled={checking}
+                                aria-busy={checking}
+                            >
+                                {checking
+                                    ? t("voucherHero.checkingButton", "Đang kiểm tra...")
+                                    : t("voucherHero.checkButton")}
                             </button>
                         </div>
 
