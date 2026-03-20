@@ -16,7 +16,8 @@ const existing = await Account.findOne({ username: sampleUsername });
 if (!existing) {
     await Account.createWithPassword({
         username: sampleUsername,
-        password: samplePassword
+        password: samplePassword,
+        role: 'admin'
     });
     // eslint-disable-next-line no-console
     console.log(`Seeded account: ${sampleUsername} / ${samplePassword}`);

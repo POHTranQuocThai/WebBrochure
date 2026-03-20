@@ -71,17 +71,23 @@ router.post('/login', async (req, res) => {
             return res.status(500).json({ error: 'missing JWT_SECRET' });
         }
 
+        const normalizedRole = (() => {
+            const raw = String(account.role || '').toLowerCase();
+            if (raw === 'admin' || raw === 'staff') return raw;
+            return 'staff';
+        })();
+
         const token = jwt.sign(
             {
                 sub: account._id.toString(),
                 username: account.username,
-                role: account.role || 'admin'
+                role: normalizedRole
             },
             secret,
             { expiresIn: '7d' }
         );
 
-        return res.json({ ok: true, username: account.username, role: account.role || 'admin', token });
+        return res.json({ ok: true, username: account.username, role: normalizedRole, token });
     } catch (err) {
         return res.status(500).json({ error: err?.message ?? 'Internal error' });
     }

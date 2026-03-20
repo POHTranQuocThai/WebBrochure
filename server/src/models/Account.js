@@ -16,7 +16,7 @@ const AccountSchema = new mongoose.Schema(
         role: {
             type: String,
             enum: ['admin', 'staff'],
-            default: 'admin',
+            default: 'staff',
             required: true
         }
     },
@@ -32,7 +32,7 @@ AccountSchema.methods.verifyPassword = async function verifyPassword(password) {
 AccountSchema.statics.createWithPassword = async function createWithPassword({
     username,
     password,
-    role = 'admin'
+    role = 'staff'
 }) {
     const passwordHash = await bcrypt.hash(password, 10);
     return this.create({ username, password: passwordHash, role });

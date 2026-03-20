@@ -142,8 +142,8 @@ export default function DashboardPage() {
       if (!token) throw new Error("LOGIN_FAILED");
 
       const payload = decodeJwtPayload(token);
-      const resolvedRole = String(data?.role || payload?.role || "admin");
-      const normalizedRole = resolvedRole === "staff" ? "staff" : "admin";
+      const resolvedRole = String(data?.role || payload?.role || "").toLowerCase();
+      const normalizedRole = resolvedRole === "admin" ? "admin" : "staff";
 
       // ensure only one token type is present
       if (normalizedRole === "admin") {
